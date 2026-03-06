@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spraay Docs – x402 Primitives Catalog</title>
+    <meta name="description" content="20 pay-per-call x402 endpoints for AI agents and developers. Batch payments, DeFi data, RPC, messaging, compliance and more. USDC on Base.">
+    <meta property="og:title" content="Spraay Docs – x402 Primitives Catalog">
+    <meta property="og:description" content="20 x402 primitives. Pay per call with USDC. No API keys, no accounts.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://docs.spraay.app">
+    <meta property="og:image" content="https://spraay.app/spraay-logo-1000x1000.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://spraay.app/spraay-logo-200x200.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue:        #0090e0;
+            --blue-deep:   #005fa3;
+            --blue-bright: #00aaff;
+            --blue-glow:   rgba(0, 170, 255, 0.07);
+            --bg:          #f5f9fd;
+            --bg-card:     #ffffff;
+            --bg-code:     #0c1a2a;
+            --text:        #0d1f2d;
+            --text-dim:    #4a6070;
+            --text-muted:  #8aa5b8;
+            --text-code:   #c5dde8;
+            --border:      rgba(0, 144, 224, 0.15);
+            --border-bright: rgba(0, 170, 255, 0.35);
+            --green:       #22c55e;
+            --green-dim:   rgba(34,197,94,0.12);
+            --yellow:      #eab308;
+            --yellow-dim:  rgba(234,179,8,0.12);
+            --purple-dim:  rgba(167,139,250,0.12);
+            --red-dim:     rgba(248,113,113,0.12);
+            --orange:      #fb923c;
+            --orange-dim:  rgba(251,146,60,0.12);
+            --cyan-dim:    rgba(34,211,238,0.12);
+            --sidebar-w:   260px;
+            --topbar-h:    56px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: calc(var(--topbar-h) + 24px); }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        code, .mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* ── Top Bar ─────────────────────────────── */
+        .topbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            height: var(--topbar-h);
+            background: rgba(245, 249, 253, 0.92); backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; padding: 0 24px;
+        }
+        .topbar-logo {
+            font-weight: 800; font-size: 1.15rem; letter-spacing: 0.08em;
+            background: linear-gradient(135deg, var(--blue-bright), var(--blue));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+        .topbar-divider { width: 1px; height: 20px; background: var(--border-bright); margin: 0 0.8rem; }
+        .topbar-label { font-size: 0.82rem; font-weight: 600; color: var(--text-dim); }
+        .topbar-right { margin-left: auto; display: flex; align-items: center; gap: 0.8rem; }
+        .topbar-link { font-size: 0.82rem; color: var(--text-dim); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+        .topbar-link:hover { color: var(--blue); }
+        .topbar-badge { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em; padding: 0.2rem 0.55rem; border-radius: 5px; text-transform: uppercase; }
+        .badge-live { background: var(--green-dim); color: var(--green); }
+        .badge-count { background: rgba(0,144,224,0.1); color: var(--blue); }
+        .topbar-cta { padding: 0.4rem 1rem; border-radius: 7px; font-size: 0.8rem; font-weight: 600; text-decoration: none; color: #fff; background: var(--blue); border: 1px solid var(--blue-bright); transition: all 0.2s; }
+        .topbar-cta:hover { background: var(--blue-bright); box-shadow: 0 2px 12px rgba(0,170,255,0.2); }
+        .sidebar-toggle { display: none; width: 36px; height: 36px; background: transparent; border: 1px solid var(--border); border-radius: 7px; cursor: pointer; align-items: center; justify-content: center; margin-right: 0.6rem; flex-shrink: 0; }
+        .sidebar-toggle span { display: block; width: 16px; height: 2px; background: var(--text); position: relative; }
+        .sidebar-toggle span::before, .sidebar-toggle span::after { content:''; position: absolute; left: 0; width: 16px; height: 2px; background: var(--text); }
+        .sidebar-toggle span::before { top: -5px; }
+        .sidebar-toggle span::after { top: 5px; }
+
+        /* ── Sidebar ─────────────────────────────── */
+        .sidebar {
+            position: fixed; top: var(--topbar-h); left: 0; bottom: 0;
+            width: var(--sidebar-w); background: var(--bg-card);
+            border-right: 1px solid var(--border);
+            overflow-y: auto; padding: 1.4rem 0; z-index: 90;
+            transition: transform 0.25s ease;
+        }
+        .sidebar::-webkit-scrollbar { width: 3px; }
+        .sidebar::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 3px; }
+        .sidebar-section { margin-bottom: 1.6rem; }
+        .sidebar-heading { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); padding: 0 1.4rem; margin-bottom: 0.4rem; }
+        .sidebar a { display: flex; align-items: center; gap: 0.55rem; padding: 0.45rem 1.4rem; font-size: 0.84rem; font-weight: 500; color: var(--text-dim); text-decoration: none; transition: all 0.12s; border-left: 2px solid transparent; }
+        .sidebar a:hover { color: var(--text); background: var(--blue-glow); }
+        .sidebar a.active { color: var(--blue); background: var(--blue-glow); border-left-color: var(--blue); font-weight: 600; }
+        .sidebar .side-icon { font-size: 0.95rem; width: 20px; text-align: center; flex-shrink: 0; }
+        .sidebar .side-badge { margin-left: auto; font-size: 0.62rem; font-weight: 700; padding: 0.1rem 0.4rem; border-radius: 4px; text-transform: uppercase; }
+        .sb-live { background: var(--green-dim); color: var(--green); }
+        .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(13,31,45,0.4); z-index: 89; }
+
+        /* ── Main Content ────────────────────────── */
+        .main { margin-left: var(--sidebar-w); margin-top: var(--topbar-h); min-height: calc(100vh - var(--topbar-h)); }
+        .content { max-width: 900px; margin: 0 auto; padding: 2.5rem 2rem 5rem; }
+
+        /* ── Hero ─────────────────────────────────── */
+        .docs-hero { padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2.5rem; }
+        .docs-hero h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 0.6rem; }
+        .docs-hero h1 span { background: linear-gradient(135deg, var(--blue-bright), #38d4ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .docs-hero p { color: var(--text-dim); font-size: 1.05rem; max-width: 620px; margin-bottom: 1.4rem; }
+        .hero-meta { display: flex; gap: 1.8rem; flex-wrap: wrap; }
+        .hero-stat { display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: var(--text-dim); }
+        .hero-stat strong { color: var(--text); font-weight: 700; }
+        .hero-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 6px rgba(34,197,94,0.5); }
+
+        /* ── Quick Start ─────────────────────────── */
+        .quickstart { background: var(--bg-code); border-radius: 12px; padding: 1.4rem 1.6rem; margin-bottom: 2.5rem; position: relative; overflow: hidden; border: 1px solid rgba(0,170,255,0.15); }
+        .quickstart::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--blue-bright), transparent); }
+        .quickstart-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin-bottom: 0.8rem; }
+        .quickstart pre { color: var(--text-code); font-size: 0.82rem; line-height: 1.7; overflow-x: auto; white-space: pre; }
+        .quickstart .kw { color: var(--blue-bright); }
+        .quickstart .str { color: #7dd3a0; }
+        .quickstart .cmt { color: #546e80; font-style: italic; }
+        .quickstart .num { color: var(--orange); }
+        .quickstart .fn { color: #dda0f5; }
+        .quickstart-copy { position: absolute; top: 1rem; right: 1rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: var(--text-muted); border-radius: 6px; padding: 0.3rem 0.6rem; font-size: 0.7rem; font-weight: 600; cursor: pointer; font-family: 'Outfit', sans-serif; transition: all 0.15s; }
+        .quickstart-copy:hover { background: rgba(255,255,255,0.14); color: #fff; }
+
+        /* ── Category Sections ───────────────────── */
+        .category-section { margin-bottom: 3rem; }
+        .category-header { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1.2rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--border); }
+        .category-icon { width: 36px; height: 36px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+        .cat-identity .category-icon { background: var(--purple-dim); }
+        .cat-data .category-icon { background: var(--cyan-dim); }
+        .cat-comm .category-icon { background: var(--orange-dim); }
+        .cat-financial .category-icon { background: var(--green-dim); }
+        .cat-infra .category-icon { background: rgba(0,144,224,0.1); }
+        .cat-compliance .category-icon { background: var(--red-dim); }
+        .category-header h2 { font-size: 1.15rem; font-weight: 700; }
+        .category-header .cat-count { font-size: 0.7rem; font-weight: 700; color: var(--text-muted); background: rgba(0,0,0,0.04); border-radius: 4px; padding: 0.1rem 0.45rem; }
+
+        /* ── Endpoint Cards ──────────────────────── */
+        .endpoint-grid { display: flex; flex-direction: column; gap: 0.7rem; }
+        .endpoint-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 11px; transition: all 0.2s; overflow: hidden; cursor: pointer; }
+        .endpoint-card:hover { border-color: var(--border-bright); box-shadow: 0 4px 18px rgba(0,144,224,0.08); }
+        .endpoint-card.expanded { border-color: var(--border-bright); }
+        .card-summary { display: grid; grid-template-columns: 1fr auto auto auto; align-items: center; gap: 1rem; padding: 1rem 1.2rem; }
+        .card-title-group { min-width: 0; }
+        .card-name { font-size: 0.92rem; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 0.4rem; }
+        .card-name .method { font-size: 0.6rem; font-weight: 700; font-family: 'JetBrains Mono', monospace; padding: 0.12rem 0.4rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.03em; }
+        .method-get { background: var(--green-dim); color: var(--green); }
+        .method-post { background: rgba(0,144,224,0.1); color: var(--blue); }
+        .card-desc { font-size: 0.8rem; color: var(--text-dim); margin-top: 0.15rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .card-endpoint { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--text-muted); background: var(--bg); border-radius: 5px; padding: 0.25rem 0.55rem; white-space: nowrap; }
+        .card-price { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 600; color: var(--blue); white-space: nowrap; }
+        .card-price .currency { font-size: 0.65rem; color: var(--text-muted); font-weight: 500; }
+        .card-status { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+        .status-live { background: var(--green); box-shadow: 0 0 6px rgba(34,197,94,0.5); }
+        .status-soon { background: var(--yellow); box-shadow: 0 0 6px rgba(234,179,8,0.5); }
+        .card-chevron { font-size: 0.6rem; color: var(--text-muted); transition: transform 0.2s; margin-left: 0.4rem; }
+        .endpoint-card.expanded .card-chevron { transform: rotate(180deg); }
+
+        /* ── Expanded Detail ─────────────────────── */
+        .card-detail { display: none; padding: 0 1.2rem 1.2rem; border-top: 1px solid var(--border); }
+        .endpoint-card.expanded .card-detail { display: block; }
+        .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem; }
+        .detail-section h4 { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.5rem; }
+        .detail-code { background: var(--bg-code); border-radius: 8px; padding: 1rem 1.2rem; overflow-x: auto; }
+        .detail-code pre { color: var(--text-code); font-size: 0.76rem; line-height: 1.65; white-space: pre; }
+        .detail-code .kw { color: var(--blue-bright); }
+        .detail-code .str { color: #7dd3a0; }
+        .detail-code .cmt { color: #546e80; font-style: italic; }
+        .detail-code .num { color: var(--orange); }
+        .detail-params { list-style: none; }
+        .detail-params li { padding: 0.35rem 0; font-size: 0.82rem; border-bottom: 1px solid rgba(0,144,224,0.08); display: flex; align-items: baseline; gap: 0.5rem; }
+        .detail-params li:last-child { border-bottom: none; }
+        .param-name { font-family: 'JetBrains Mono', monospace; font-size: 0.76rem; font-weight: 600; color: var(--blue); }
+        .param-type { font-size: 0.68rem; color: var(--text-muted); font-weight: 600; }
+        .param-desc { color: var(--text-dim); font-size: 0.8rem; }
+        .detail-meta { display: flex; gap: 1.5rem; margin-top: 0.8rem; flex-wrap: wrap; }
+        .meta-item { font-size: 0.78rem; color: var(--text-dim); }
+        .meta-item strong { color: var(--text); }
+        .try-btn { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1rem; padding: 0.5rem 1rem; border-radius: 7px; background: var(--blue); color: #fff; border: 1px solid var(--blue-bright); font-size: 0.8rem; font-weight: 600; cursor: pointer; font-family: 'Outfit', sans-serif; transition: all 0.2s; text-decoration: none; }
+        .try-btn:hover { background: var(--blue-bright); box-shadow: 0 2px 10px rgba(0,170,255,0.2); }
+
+        /* ── Integrations ────────────────────────── */
+        .integrations-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+        .integrations-section h2 { font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem; }
+        .integrations-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.8rem; }
+        .int-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem; transition: all 0.2s; text-decoration: none; color: var(--text); }
+        .int-card:hover { border-color: var(--border-bright); box-shadow: 0 3px 14px rgba(0,144,224,0.08); }
+        .int-card h3 { font-size: 0.92rem; font-weight: 700; margin-bottom: 0.2rem; }
+        .int-card p { font-size: 0.8rem; color: var(--text-dim); }
+        .int-card .int-icon { font-size: 1.3rem; margin-bottom: 0.5rem; }
+
+        /* ── Footer ──────────────────────────────── */
+        .docs-footer { padding: 2rem; border-top: 1px solid var(--border); text-align: center; font-size: 0.78rem; color: var(--text-muted); }
+        .docs-footer a { color: var(--blue-bright); text-decoration: none; }
+        .docs-footer a:hover { text-decoration: underline; }
+
+        /* ── Responsive ──────────────────────────── */
+        @media (max-width: 900px) {
+            .card-summary { grid-template-columns: 1fr auto; gap: 0.6rem; }
+            .card-endpoint { display: none; }
+            .card-status { display: none; }
+            .detail-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .sidebar { transform: translateX(-100%); z-index: 100; }
+            .sidebar.open { transform: translateX(0); box-shadow: 8px 0 30px rgba(0,0,0,0.15); }
+            .sidebar-overlay.open { display: block; }
+            .sidebar-toggle { display: flex; }
+            .main { margin-left: 0; }
+            .content { padding: 2rem 1.2rem 4rem; }
+            .docs-hero h1 { font-size: 1.6rem; }
+            .topbar-link { display: none; }
+            .topbar-badge { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="topbar">
+    <button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar"><span></span></button>
+    <a href="https://spraay.app" class="topbar-logo">SPRAAY</a>
+    <span class="topbar-divider"></span>
+    <span class="topbar-label">Developer Docs</span>
+    <div class="topbar-right">
+        <span class="topbar-badge badge-live">Gateway Live</span>
+        <span class="topbar-badge badge-count">20 Primitives</span>
+        <a href="https://spraay.app" class="topbar-link">&larr; Back to App</a>
+        <a href="https://github.com/plagtech/spraay-x402-mcp" class="topbar-link">GitHub</a>
+        <a href="https://smithery.ai/server/@plagtech/spraay-x402-mcp" class="topbar-link">Smithery</a>
+        <a href="https://gateway.spraay.app" class="topbar-cta">Try Gateway &rarr;</a>
+    </div>
+</div>
+
+<!-- Sidebar -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+<nav class="sidebar" id="sidebar">
+    <div class="sidebar-section">
+        <div class="sidebar-heading">Getting Started</div>
+        <a href="#overview"><span class="side-icon">📖</span> Overview</a>
+        <a href="#quickstart"><span class="side-icon">⚡</span> Quick Start</a>
+        <a href="#integrations"><span class="side-icon">🔌</span> Integrations</a>
+    </div>
+    <div class="sidebar-section">
+        <div class="sidebar-heading">Identity &amp; Access</div>
+        <a href="#kyc"><span class="side-icon">🪪</span> KYC/KYB</a>
+        <a href="#auth"><span class="side-icon">🔐</span> Auth/SSO</a>
+    </div>
+    <div class="sidebar-section">
+        <div class="sidebar-heading">Data &amp; Intelligence</div>
+        <a href="#oracle"><span class="side-icon">📡</span> Oracle <span class="side-badge sb-live">Live</span></a>
+        <a href="#analytics"><span class="side-icon">📊</span> Analytics <span class="side-badge sb-live">Live</span></a>
+        <a href="#indexer"><span class="side-icon">🔍</span> Indexer</a>
+        <a href="#inference"><span class="side-icon">🧠</span> AI Inference <span class="side-badge sb-live">Live</span></a>
+    </div>
+    <div class="sidebar-section">
+        <div class="sidebar-heading">Communication</div>
+        <a href="#email-sms"><span class="side-icon">📧</span> Email/SMS</a>
+        <a href="#webhook"><span class="side-icon">🪝</span> Webhook</a>
+        <a href="#xmtp"><span class="side-icon">💬</span> XMTP Relay</a>
+    </div>
+    <div class="sidebar-section">
+        <div class="sidebar-heading">Financial Primitives</div>
+        <a href="#escrow"><span class="side-icon">🏦</span> Escrow <span class="side-badge sb-live">Live</span></a>
+        <a href="#swap"><span class="side-icon">🔄</span> Swap <span class="side-badge sb-live">Live</span></a>
+        <a href="#bridge"><span class="side-icon">🌉</span> Bridge <span class="side-badge sb-live">Live</span></a>
+        <a href="#payroll"><span class="side-icon">💰</span> Payroll <span class="side-badge sb-live">Live</span></a>
+        <a href="#invoice"><span class="side-icon">🧾</span> Invoice <span class="side-badge sb-live">Live</span></a>
+    </div>
+    <div class="sidebar-section">
+        <div class="sidebar-heading">Infrastructure</div>
+        <a href="#rpc"><span class="side-icon">🖧</span> RPC</a>
+        <a href="#ipfs"><span class="side-icon">📌</span> IPFS/Arweave</a>
+        <a href="#cron"><span class="side-icon">⏰</span> Cron/Scheduler</a>
+        <a href="#logging"><span class="side-icon">📋</span> Logging</a>
+    </div>
+    <div class="sidebar-section">
+        <div class="sidebar-heading">Compliance</div>
+        <a href="#audit"><span class="side-icon">🛡️</span> Audit Trail</a>
+        <a href="#tax"><span class="side-icon">🧮</span> Tax</a>
+    </div>
+</nav>
+
+<!-- Main -->
+<div class="main">
+<div class="content">
+
+    <!-- Hero -->
+    <div class="docs-hero" id="overview">
+        <h1>x402 Primitives <span>Catalog</span></h1>
+        <p>The full-stack pay-per-call API for crypto infrastructure. Every endpoint is x402-native — agents and developers pay USDC per request on Base. No API keys, no accounts, no subscriptions.</p>
+        <div class="hero-meta">
+            <div class="hero-stat"><span class="hero-dot"></span> <strong>20</strong> Primitives</div>
+            <div class="hero-stat"><strong>6</strong> Categories</div>
+            <div class="hero-stat"><strong>USDC</strong> on Base</div>
+            <div class="hero-stat"><strong>gateway.spraay.app</strong></div>
+        </div>
+    </div>
+
+    <!-- Quick Start -->
+    <div class="quickstart" id="quickstart">
+        <div class="quickstart-label">Quick Start — Make your first x402 call</div>
+        <button class="quickstart-copy" onclick="copyQuickstart()">Copy</button>
+        <pre><span class="cmt">// Install the x402 client</span>
+<span class="kw">npm install</span> x402-client
+
+<span class="cmt">// Make a paid API call — payment is automatic</span>
+<span class="kw">import</span> { createClient } <span class="kw">from</span> <span class="str">"x402-client"</span>;
+
+<span class="kw">const</span> client = <span class="fn">createClient</span>({
+  baseUrl: <span class="str">"https://gateway.spraay.app"</span>,
+  privateKey: process.env.<span class="str">EVM_PRIVATE_KEY</span>,  <span class="cmt">// Wallet with USDC on Base</span>
+});
+
+<span class="cmt">// Fetch live ETH price — pays $0.002 USDC automatically</span>
+<span class="kw">const</span> prices = <span class="kw">await</span> client.<span class="fn">get</span>(<span class="str">"/api/v1/prices"</span>);
+console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.50, ... }</span>
+
+<span class="cmt">// Batch send USDC to 50 wallets — pays $0.01 USDC</span>
+<span class="kw">const</span> tx = <span class="kw">await</span> client.<span class="fn">post</span>(<span class="str">"/api/v1/batch"</span>, {
+  token: <span class="str">"USDC"</span>,
+  recipients: [{ address: <span class="str">"0x..."</span>, amount: <span class="str">"10.00"</span> }, <span class="cmt">/* ... */</span>]
+});</pre>
+    </div>
+
+    <!-- ═══ IDENTITY & ACCESS ═══ -->
+    <div class="category-section cat-identity" id="cat-identity">
+        <div class="category-header"><div class="category-icon">🪪</div><h2>Identity &amp; Access</h2><span class="cat-count">2 endpoints</span></div>
+        <div class="endpoint-grid">
+            <div class="endpoint-card" id="kyc" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> x402 KYC/KYB</div><div class="card-desc">On-demand identity verification — compliance-gated batch payments</div></div>
+                    <div class="card-endpoint">/api/v1/kyc/verify</div>
+                    <div class="card-price">$0.25 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-soon"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">wallet_address</span> <span class="param-type">string</span> <span class="param-desc">— Address to verify</span></li><li><span class="param-name">level</span> <span class="param-type">string</span> <span class="param-desc">— "basic" | "enhanced" | "kyb"</span></li><li><span class="param-name">chain</span> <span class="param-type">string</span> <span class="param-desc">— Target chain (default: "base")</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Coming Soon</span><span class="meta-item"><strong>Latency:</strong> ~2s</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/kyc/verify"</span>, {
+    wallet_address: <span class="str">"0xAb5..."</span>,
+    level: <span class="str">"basic"</span>
+  }
+);
+<span class="cmt">// { verified: true, score: 92,
+//   flags: [], expires: "2025-..." }</span></pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="auth" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> x402 Auth/SSO</div><div class="card-desc">Pay-per-session authentication proxy for third-party services</div></div>
+                    <div class="card-endpoint">/api/v1/auth/session</div>
+                    <div class="card-price">$0.01 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-soon"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">provider</span> <span class="param-type">string</span> <span class="param-desc">— Service to authenticate with</span></li><li><span class="param-name">wallet_address</span> <span class="param-type">string</span> <span class="param-desc">— Wallet for session binding</span></li><li><span class="param-name">ttl</span> <span class="param-type">number</span> <span class="param-desc">— Session duration in seconds</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Coming Soon</span><span class="meta-item"><strong>Latency:</strong> ~500ms</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> session = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/auth/session"</span>, {
+    provider: <span class="str">"github"</span>,
+    wallet_address: <span class="str">"0xAb5..."</span>,
+    ttl: <span class="num">3600</span>
+  }
+);
+<span class="cmt">// { token: "ey...", expires_at: "..." }</span></pre></div></div>
+                </div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ DATA & INTELLIGENCE ═══ -->
+    <div class="category-section cat-data" id="cat-data">
+        <div class="category-header"><div class="category-icon">📡</div><h2>Data &amp; Intelligence</h2><span class="cat-count">4 endpoints</span></div>
+        <div class="endpoint-grid">
+            <div class="endpoint-card" id="oracle" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> x402 Oracle</div><div class="card-desc">Real-time price feeds, gas estimates, FX rates — live off-chain data</div></div>
+                    <div class="card-endpoint">/api/v1/prices</div>
+                    <div class="card-price">$0.002 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">tokens</span> <span class="param-type">string[]</span> <span class="param-desc">— Token symbols (e.g. ["ETH","USDC"])</span></li><li><span class="param-name">vs_currency</span> <span class="param-type">string</span> <span class="param-desc">— Quote currency (default: "usd")</span></li><li><span class="param-name">include_gas</span> <span class="param-type">boolean</span> <span class="param-desc">— Include gas price estimates</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Live</span><span class="meta-item"><strong>Latency:</strong> ~120ms</span><span class="meta-item"><strong>Cache:</strong> 10s</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> data = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/prices?tokens=ETH,USDC"</span>
+);
+<span class="cmt">// { ETH: { usd: 2847.50, change_24h: 1.2 },
+//   USDC: { usd: 1.00 },
+//   gas: { base: "0.004 gwei" } }</span></pre></div><a href="https://gateway.spraay.app/api/v1/prices" target="_blank" class="try-btn">▶ Try it live</a></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="analytics" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> x402 Analytics</div><div class="card-desc">Wallet analytics, portfolio scoring, transaction risk profiling</div></div>
+                    <div class="card-endpoint">/api/v1/analytics</div>
+                    <div class="card-price">$0.005 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">address</span> <span class="param-type">string</span> <span class="param-desc">— Wallet or ENS to analyze</span></li><li><span class="param-name">chain</span> <span class="param-type">string</span> <span class="param-desc">— Chain to query (default: "base")</span></li><li><span class="param-name">depth</span> <span class="param-type">string</span> <span class="param-desc">— "summary" | "full"</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Live</span><span class="meta-item"><strong>Latency:</strong> ~800ms</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> report = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/analytics?address=vitalik.eth"</span>
+);
+<span class="cmt">// { portfolio_value: "$1.2M",
+//   risk_score: 12, tx_count: 4821 }</span></pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="indexer" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> x402 Indexer</div><div class="card-desc">Pay-per-query blockchain indexing — tx history, balances across chains</div></div>
+                    <div class="card-endpoint">/api/v1/index/query</div>
+                    <div class="card-price">$0.003 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-soon"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">address</span> <span class="param-type">string</span> <span class="param-desc">— Wallet address to index</span></li><li><span class="param-name">chains</span> <span class="param-type">string[]</span> <span class="param-desc">— Chains to query</span></li><li><span class="param-name">type</span> <span class="param-type">string</span> <span class="param-desc">— "balances" | "history" | "nfts"</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Coming Soon</span><span class="meta-item"><strong>Latency:</strong> ~1.5s</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> history = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/index/query"</span>, {
+    address: <span class="str">"0xAb5..."</span>,
+    chains: [<span class="str">"base"</span>, <span class="str">"ethereum"</span>],
+    type: <span class="str">"history"</span>
+  }
+);
+<span class="cmt">// { transactions: [...], total: 142 }</span></pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="inference" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> x402 AI Inference</div><div class="card-desc">Pay-per-call ML models — fraud detection, tx classification, clustering</div></div>
+                    <div class="card-endpoint">/api/v1/ai/chat</div>
+                    <div class="card-price">$0.01 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">model</span> <span class="param-type">string</span> <span class="param-desc">— Model ID (OpenAI-compatible)</span></li><li><span class="param-name">messages</span> <span class="param-type">array</span> <span class="param-desc">— Chat messages array</span></li><li><span class="param-name">max_tokens</span> <span class="param-type">number</span> <span class="param-desc">— Max response tokens</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Live</span><span class="meta-item"><strong>200+</strong> models via OpenRouter</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> resp = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/ai/chat"</span>, {
+    model: <span class="str">"anthropic/claude-sonnet"</span>,
+    messages: [{
+      role: <span class="str">"user"</span>,
+      content: <span class="str">"Classify this tx..."</span>
+    }]
+  }
+);
+<span class="cmt">// { response: "This appears to be..." }</span></pre></div><a href="https://gateway.spraay.app/api/v1/ai/chat" target="_blank" class="try-btn">▶ Try it live</a></div>
+                </div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ COMMUNICATION ═══ -->
+    <div class="category-section cat-comm" id="cat-comm">
+        <div class="category-header"><div class="category-icon">📧</div><h2>Communication &amp; Notification</h2><span class="cat-count">3 endpoints</span></div>
+        <div class="endpoint-grid">
+            <div class="endpoint-card" id="email-sms" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> x402 Email/SMS</div><div class="card-desc">Payment confirmations, alerts, receipts via AgentMail &amp; Twilio</div></div>
+                    <div class="card-endpoint">/api/v1/notify/send</div>
+                    <div class="card-price">$0.005 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-soon"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">channel</span> <span class="param-type">string</span> <span class="param-desc">— "email" | "sms"</span></li><li><span class="param-name">to</span> <span class="param-type">string</span> <span class="param-desc">— Recipient address or phone</span></li><li><span class="param-name">subject</span> <span class="param-type">string</span> <span class="param-desc">— Email subject line</span></li><li><span class="param-name">body</span> <span class="param-type">string</span> <span class="param-desc">— Message body (text or HTML)</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Email:</strong> Live (AgentMail)</span><span class="meta-item"><strong>SMS:</strong> Pending (Twilio)</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">await</span> client.<span class="fn">post</span>(<span class="str">"/api/v1/notify/send"</span>, {
+  channel: <span class="str">"email"</span>,
+  to: <span class="str">"team@company.com"</span>,
+  subject: <span class="str">"Payroll Complete"</span>,
+  body: <span class="str">"50 recipients paid via Spraay"</span>
+});
+<span class="cmt">// { sent: true, id: "msg_a1b2c3" }</span></pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="webhook" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> x402 Webhook</div><div class="card-desc">Pay-per-delivery event forwarding — tx confirmations, status callbacks</div></div>
+                    <div class="card-endpoint">/api/v1/webhook/register</div>
+                    <div class="card-price">$0.002 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-soon"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">url</span> <span class="param-type">string</span> <span class="param-desc">— Your webhook endpoint URL</span></li><li><span class="param-name">events</span> <span class="param-type">string[]</span> <span class="param-desc">— Events to subscribe to</span></li><li><span class="param-name">secret</span> <span class="param-type">string</span> <span class="param-desc">— Signing secret for verification</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Coming Soon</span><span class="meta-item"><strong>Events:</strong> tx.confirmed, batch.complete, payment.received</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">await</span> client.<span class="fn">post</span>(<span class="str">"/api/v1/webhook/register"</span>, {
+  url: <span class="str">"https://myapp.com/hooks"</span>,
+  events: [<span class="str">"batch.complete"</span>],
+  secret: <span class="str">"whsec_..."</span>
+});
+<span class="cmt">// { id: "wh_x9y8", active: true }</span></pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="xmtp" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> x402 XMTP Relay</div><div class="card-desc">Agent-to-agent &amp; agent-to-user encrypted messaging via XMTP</div></div>
+                    <div class="card-endpoint">/api/v1/xmtp/send</div>
+                    <div class="card-price">$0.003 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-soon"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">to</span> <span class="param-type">string</span> <span class="param-desc">— Recipient wallet or ENS</span></li><li><span class="param-name">message</span> <span class="param-type">string</span> <span class="param-desc">— Message content</span></li><li><span class="param-name">content_type</span> <span class="param-type">string</span> <span class="param-desc">— "text" | "attachment"</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Provider:</strong> XMTP (Fly.io)</span><span class="meta-item"><strong>Status:</strong> Coming Soon</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">await</span> client.<span class="fn">post</span>(<span class="str">"/api/v1/xmtp/send"</span>, {
+  to: <span class="str">"0xRecipient..."</span>,
+  message: <span class="str">"Payment of 50 USDC sent"</span>,
+  content_type: <span class="str">"text"</span>
+});
+<span class="cmt">// { sent: true, conversation_id: "..." }</span></pre></div></div>
+                </div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ FINANCIAL PRIMITIVES ═══ -->
+    <div class="category-section cat-financial" id="cat-financial">
+        <div class="category-header"><div class="category-icon">💰</div><h2>Financial Primitives</h2><span class="cat-count">5 endpoints</span></div>
+        <div class="endpoint-grid">
+            <div class="endpoint-card" id="escrow" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> x402 Escrow</div><div class="card-desc">Conditional batch payments — milestone-based, time-locked escrow contracts</div></div>
+                    <div class="card-endpoint">/api/v1/escrow/create</div>
+                    <div class="card-price">$0.02 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">token</span> <span class="param-type">string</span> <span class="param-desc">— Token symbol or address</span></li><li><span class="param-name">amount</span> <span class="param-type">string</span> <span class="param-desc">— Amount to escrow</span></li><li><span class="param-name">recipient</span> <span class="param-type">string</span> <span class="param-desc">— Recipient address</span></li><li><span class="param-name">conditions</span> <span class="param-type">object</span> <span class="param-desc">— Release conditions (milestone, time-lock)</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> escrow = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/escrow/create"</span>, {
+    token: <span class="str">"USDC"</span>,
+    amount: <span class="str">"5000"</span>,
+    recipient: <span class="str">"0xFreelancer..."</span>,
+    conditions: {
+      type: <span class="str">"milestone"</span>,
+      deadline: <span class="str">"2025-04-01"</span>
+    }
+  }
+);
+<span class="cmt">// { escrow_id: "esc_...", tx: "0x..." }</span></pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="swap" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> x402 Swap</div><div class="card-desc">Atomic swap quotes &amp; execution via Uniswap V3 / Aerodrome</div></div>
+                    <div class="card-endpoint">/api/v1/swap/quote</div>
+                    <div class="card-price">$0.005 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">from</span> <span class="param-type">string</span> <span class="param-desc">— Input token symbol</span></li><li><span class="param-name">to</span> <span class="param-type">string</span> <span class="param-desc">— Output token</span></li><li><span class="param-name">amount</span> <span class="param-type">string</span> <span class="param-desc">— Input amount</span></li><li><span class="param-name">slippage</span> <span class="param-type">number</span> <span class="param-desc">— Max slippage % (default: 0.5)</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Live</span><span class="meta-item"><strong>DEXs:</strong> Uniswap V3, Aerodrome</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> quote = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/swap/quote?from=USDC&amp;to=WETH&amp;amount=100"</span>
+);
+<span class="cmt">// { amountOut: "0.0351",
+//   route: "USDC→WETH",
+//   priceImpact: "0.02%" }</span></pre></div><a href="https://gateway.spraay.app/api/v1/swap/quote" target="_blank" class="try-btn">▶ Try it live</a></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="bridge" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> x402 Bridge</div><div class="card-desc">Cross-chain token transfers across Spraay's 11-chain footprint</div></div>
+                    <div class="card-endpoint">/api/v1/bridge/transfer</div>
+                    <div class="card-price">$0.02 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">from_chain</span> <span class="param-type">string</span> <span class="param-desc">— Source chain</span></li><li><span class="param-name">to_chain</span> <span class="param-type">string</span> <span class="param-desc">— Destination chain</span></li><li><span class="param-name">token</span> <span class="param-type">string</span> <span class="param-desc">— Token to bridge</span></li><li><span class="param-name">amount</span> <span class="param-type">string</span> <span class="param-desc">— Amount</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Live</span><span class="meta-item"><strong>Chains:</strong> 11 supported</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> bridge = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/bridge/transfer"</span>, {
+    from_chain: <span class="str">"base"</span>,
+    to_chain: <span class="str">"arbitrum"</span>,
+    token: <span class="str">"USDC"</span>,
+    amount: <span class="str">"1000"</span>
+  }
+);
+<span class="cmt">// { bridge_id: "br_...", eta: "~2 min" }</span></pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="payroll" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> x402 Payroll</div><div class="card-desc">Agent-driven payroll via StablePay — recurring batch payments</div></div>
+                    <div class="card-endpoint">/api/v1/payroll/run</div>
+                    <div class="card-price">$0.01 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">name</span> <span class="param-type">string</span> <span class="param-desc">— Payroll run name</span></li><li><span class="param-name">token</span> <span class="param-type">string</span> <span class="param-desc">— Payment token</span></li><li><span class="param-name">employees</span> <span class="param-type">array</span> <span class="param-desc">— [{address, amount, memo}]</span></li><li><span class="param-name">schedule</span> <span class="param-type">string</span> <span class="param-desc">— "once" | "weekly" | "monthly"</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Live</span><span class="meta-item"><strong>Powered by:</strong> StablePay</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> run = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/payroll/run"</span>, {
+    name: <span class="str">"March 2025"</span>,
+    token: <span class="str">"USDC"</span>,
+    employees: [
+      { address: <span class="str">"0x..."</span>, amount: <span class="str">"3500"</span> },
+      { address: <span class="str">"0x..."</span>, amount: <span class="str">"4200"</span> }
+    ]
+  }
+);
+<span class="cmt">// { payroll_id: "pr_...", tx: "0x..." }</span></pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="invoice" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> x402 Invoice</div><div class="card-desc">On-demand invoice generation with payment tracking &amp; receipts</div></div>
+                    <div class="card-endpoint">/api/v1/invoice/create</div>
+                    <div class="card-price">$0.005 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">to</span> <span class="param-type">string</span> <span class="param-desc">— Client wallet or email</span></li><li><span class="param-name">items</span> <span class="param-type">array</span> <span class="param-desc">— Line items [{desc, amount}]</span></li><li><span class="param-name">token</span> <span class="param-type">string</span> <span class="param-desc">— Accepted payment token</span></li><li><span class="param-name">due_date</span> <span class="param-type">string</span> <span class="param-desc">— Payment deadline</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> inv = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/invoice/create"</span>, {
+    to: <span class="str">"client@co.com"</span>,
+    items: [{ desc: <span class="str">"Dev work"</span>,
+              amount: <span class="str">"2500"</span> }],
+    token: <span class="str">"USDC"</span>,
+    due_date: <span class="str">"2025-04-15"</span>
+  }
+);
+<span class="cmt">// { invoice_id: "inv_...",
+//   pay_link: "https://..." }</span></pre></div></div>
+                </div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ INFRASTRUCTURE ═══ -->
+    <div class="category-section cat-infra" id="cat-infra">
+        <div class="category-header"><div class="category-icon">🖧</div><h2>Infrastructure &amp; DevOps</h2><span class="cat-count">4 endpoints</span></div>
+        <div class="endpoint-grid">
+            <div class="endpoint-card" id="rpc" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> x402 RPC</div><div class="card-desc">Premium multi-chain RPC via Alchemy — 7 chains behind one paywall</div></div>
+                    <div class="card-endpoint">/api/v1/rpc</div>
+                    <div class="card-price">$0.001 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-soon"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">chain</span> <span class="param-type">string</span> <span class="param-desc">— Target chain</span></li><li><span class="param-name">method</span> <span class="param-type">string</span> <span class="param-desc">— JSON-RPC method</span></li><li><span class="param-name">params</span> <span class="param-type">array</span> <span class="param-desc">— Method parameters</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Provider:</strong> Alchemy</span><span class="meta-item"><strong>Chains:</strong> 7</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> block = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/rpc"</span>, {
+    chain: <span class="str">"base"</span>,
+    method: <span class="str">"eth_blockNumber"</span>,
+    params: []
+  }
+);
+<span class="cmt">// { result: "0x1a2b3c" }</span></pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="ipfs" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> x402 IPFS/Arweave</div><div class="card-desc">Permanent storage pinning for receipts, proofs, metadata via Pinata</div></div>
+                    <div class="card-endpoint">/api/v1/storage/pin</div>
+                    <div class="card-price">$0.01 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-soon"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">content</span> <span class="param-type">string|object</span> <span class="param-desc">— Content to pin</span></li><li><span class="param-name">name</span> <span class="param-type">string</span> <span class="param-desc">— Pin name/label</span></li><li><span class="param-name">backend</span> <span class="param-type">string</span> <span class="param-desc">— "ipfs" | "arweave"</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Provider:</strong> Pinata</span><span class="meta-item"><strong>Status:</strong> Coming Soon</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> pin = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/storage/pin"</span>, {
+    content: { receipt: <span class="str">"..."</span>, tx: <span class="str">"0x..."</span> },
+    name: <span class="str">"payroll-receipt-march"</span>,
+    backend: <span class="str">"ipfs"</span>
+  }
+);
+<span class="cmt">// { cid: "Qm...", url: "https://..." }</span></pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="cron" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> x402 Cron/Scheduler</div><div class="card-desc">Scheduled tasks — recurring payments, DCA triggers, automated sprays</div></div>
+                    <div class="card-endpoint">/api/v1/cron/schedule</div>
+                    <div class="card-price">$0.005 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-soon"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">cron</span> <span class="param-type">string</span> <span class="param-desc">— Cron expression</span></li><li><span class="param-name">action</span> <span class="param-type">object</span> <span class="param-desc">— API call to execute</span></li><li><span class="param-name">max_runs</span> <span class="param-type">number</span> <span class="param-desc">— Max executions (0 = unlimited)</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Coming Soon</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">await</span> client.<span class="fn">post</span>(<span class="str">"/api/v1/cron/schedule"</span>, {
+  cron: <span class="str">"0 9 1 * *"</span>,  <span class="cmt">// 1st of month</span>
+  action: {
+    endpoint: <span class="str">"/api/v1/payroll/run"</span>,
+    body: { name: <span class="str">"Monthly"</span> }
+  },
+  max_runs: <span class="num">12</span>
+});
+<span class="cmt">// { job_id: "cron_...", next: "..." }</span></pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="logging" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> x402 Logging</div><div class="card-desc">Structured log ingestion &amp; querying for debugging agent workflows</div></div>
+                    <div class="card-endpoint">/api/v1/logs</div>
+                    <div class="card-price">$0.001 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-soon"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">action</span> <span class="param-type">string</span> <span class="param-desc">— "ingest" | "query"</span></li><li><span class="param-name">entries</span> <span class="param-type">array</span> <span class="param-desc">— Log entries to store</span></li><li><span class="param-name">filter</span> <span class="param-type">object</span> <span class="param-desc">— Query filters</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Coming Soon</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">await</span> client.<span class="fn">post</span>(<span class="str">"/api/v1/logs"</span>, {
+  action: <span class="str">"ingest"</span>,
+  entries: [{
+    level: <span class="str">"info"</span>,
+    msg: <span class="str">"Batch sent to 50 recipients"</span>,
+    tx: <span class="str">"0x..."</span>
+  }]
+});
+<span class="cmt">// { stored: 1, id: "log_..." }</span></pre></div></div>
+                </div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ COMPLIANCE ═══ -->
+    <div class="category-section cat-compliance" id="cat-compliance">
+        <div class="category-header"><div class="category-icon">🛡️</div><h2>Compliance &amp; Audit</h2><span class="cat-count">2 endpoints</span></div>
+        <div class="endpoint-grid">
+            <div class="endpoint-card" id="audit" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> x402 Audit Trail</div><div class="card-desc">Immutable, queryable payment audit logs for enterprise &amp; grant reporting</div></div>
+                    <div class="card-endpoint">/api/v1/audit/query</div>
+                    <div class="card-price">$0.005 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-soon"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">wallet</span> <span class="param-type">string</span> <span class="param-desc">— Wallet to audit</span></li><li><span class="param-name">from</span> <span class="param-type">string</span> <span class="param-desc">— Start date (ISO 8601)</span></li><li><span class="param-name">to</span> <span class="param-type">string</span> <span class="param-desc">— End date</span></li><li><span class="param-name">format</span> <span class="param-type">string</span> <span class="param-desc">— "json" | "csv" | "pdf"</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Coming Soon</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> report = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/audit/query"</span>, {
+    wallet: <span class="str">"0xTreasury..."</span>,
+    from: <span class="str">"2025-01-01"</span>,
+    to: <span class="str">"2025-03-31"</span>,
+    format: <span class="str">"csv"</span>
+  }
+);
+<span class="cmt">// Returns CSV of all batch payments
+// with tx hashes, timestamps, amounts</span></pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="tax" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> x402 Tax</div><div class="card-desc">Per-request crypto tax calculation and reporting</div></div>
+                    <div class="card-endpoint">/api/v1/tax/calculate</div>
+                    <div class="card-price">$0.01 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-soon"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">wallet</span> <span class="param-type">string</span> <span class="param-desc">— Wallet address</span></li><li><span class="param-name">tax_year</span> <span class="param-type">number</span> <span class="param-desc">— Tax year</span></li><li><span class="param-name">jurisdiction</span> <span class="param-type">string</span> <span class="param-desc">— "US" | "UK" | "EU"</span></li><li><span class="param-name">method</span> <span class="param-type">string</span> <span class="param-desc">— "fifo" | "lifo" | "hifo"</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Coming Soon</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> taxes = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/tax/calculate"</span>, {
+    wallet: <span class="str">"0x..."</span>,
+    tax_year: <span class="num">2025</span>,
+    jurisdiction: <span class="str">"US"</span>,
+    method: <span class="str">"fifo"</span>
+  }
+);
+<span class="cmt">// { gains: { short: "$420",
+//   long: "$1200" }, events: 84 }</span></pre></div></div>
+                </div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ INTEGRATIONS ═══ -->
+    <div class="integrations-section" id="integrations">
+        <h2>Connect via</h2>
+        <div class="integrations-grid">
+            <a href="https://smithery.ai/server/@plagtech/spraay-x402-mcp" target="_blank" class="int-card"><div class="int-icon">🔧</div><h3>MCP Server</h3><p>57 tools for Claude Desktop, Cursor, Cline. Install from Smithery.</p></a>
+            <a href="https://github.com/coinbase/agentkit/pull/944" target="_blank" class="int-card"><div class="int-icon">🤖</div><h3>Coinbase AgentKit</h3><p>Batch send action for any AgentKit-powered AI agent. PR #944.</p></a>
+            <a href="https://gateway.spraay.app" target="_blank" class="int-card"><div class="int-icon">⚡</div><h3>Direct x402 Gateway</h3><p>Hit endpoints directly with any x402 client. USDC on Base.</p></a>
+            <a href="https://github.com/plagtech" target="_blank" class="int-card"><div class="int-icon">💻</div><h3>SDKs &amp; Libraries</h3><p>TypeScript SDK, Solana SDK, Python CLI. Open source on GitHub.</p></a>
+        </div>
+    </div>
+
+</div>
+<div class="docs-footer">
+    <p>Spraay x402 Gateway &middot; <a href="https://spraay.app">spraay.app</a> &middot; <a href="https://github.com/plagtech">GitHub</a> &middot; <a href="https://twitter.com/Spraay_app">Twitter</a> &middot; <a href="https://warpcast.com/plag">Farcaster</a></p>
+    <p style="margin-top:0.4rem;">Contract: <a href="https://basescan.org/address/0x1646452F98E36A3c9Cfc3eDD8868221E207B5eEC" target="_blank"><code style="font-size:0.72rem;">0x1646452F98E36A3c9Cfc3eDD8868221E207B5eEC</code></a> on Base</p>
+</div>
+</div>
+
+<script>
+function toggleCard(card) {
+    const wasExpanded = card.classList.contains('expanded');
+    document.querySelectorAll('.endpoint-card.expanded').forEach(c => { if (c !== card) c.classList.remove('expanded'); });
+    card.classList.toggle('expanded', !wasExpanded);
+}
+document.querySelectorAll('.card-detail').forEach(d => d.addEventListener('click', e => e.stopPropagation()));
+
+function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.getElementById('sidebarOverlay').classList.toggle('open'); }
+function closeSidebar() { document.getElementById('sidebar').classList.remove('open'); document.getElementById('sidebarOverlay').classList.remove('open'); }
+document.querySelectorAll('.sidebar a').forEach(link => { link.addEventListener('click', () => { if (window.innerWidth <= 768) closeSidebar(); }); });
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const id = entry.target.id;
+            document.querySelectorAll('.sidebar a').forEach(link => { link.classList.toggle('active', link.getAttribute('href') === '#' + id); });
+        }
+    });
+}, { rootMargin: '-80px 0px -60% 0px', threshold: 0 });
+document.querySelectorAll('.endpoint-card[id], .docs-hero[id], .quickstart[id], .integrations-section[id]').forEach(el => observer.observe(el));
+
+function copyQuickstart() {
+    const code = document.querySelector('.quickstart pre').textContent;
+    navigator.clipboard.writeText(code).then(() => { const btn = document.querySelector('.quickstart-copy'); btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = 'Copy', 2000); });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash) { const el = document.getElementById(hash); if (el && el.classList.contains('endpoint-card')) { setTimeout(() => { el.classList.add('expanded'); el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 200); } }
+});
+</script>
+</body>
+</html>
