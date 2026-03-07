@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spraay Docs – x402 Primitives Catalog</title>
-    <meta name="description" content="20 pay-per-call x402 endpoints for AI agents and developers. Batch payments, DeFi data, RPC, messaging, compliance and more. USDC on Base.">
+    <meta name="description" content="22 pay-per-call x402 endpoints for AI agents and developers. Batch payments, DeFi data, RPC, messaging, compliance and more. USDC on Base.">
     <meta property="og:title" content="Spraay Docs – x402 Primitives Catalog">
-    <meta property="og:description" content="20 x402 primitives. Pay per call with USDC. No API keys, no accounts.">
+    <meta property="og:description" content="22 x402 primitives. Pay per call with USDC. No API keys, no accounts.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.spraay.app">
     <meta property="og:image" content="https://spraay.app/spraay-logo-1000x1000.png">
@@ -224,7 +224,7 @@
     <span class="topbar-label">Developer Docs</span>
     <div class="topbar-right">
         <span class="topbar-badge badge-live">Gateway Live</span>
-        <span class="topbar-badge badge-count">20 Primitives</span>
+        <span class="topbar-badge badge-count">22 Primitives</span>
         <a href="https://spraay.app" class="topbar-link">&larr; Back to App</a>
         <a href="https://github.com/plagtech/spraay-x402-mcp" class="topbar-link">GitHub</a>
         <a href="https://smithery.ai/server/@plagtech/spraay-x402-mcp" class="topbar-link">Smithery</a>
@@ -275,6 +275,18 @@
         <a href="#logging"><span class="side-icon">📋</span> Logging</a>
     </div>
     <div class="sidebar-section">
+        <div class="sidebar-heading">GPU / Compute</div>
+        <a href="#gpu-run"><span class="side-icon">🖥️</span> GPU Run <span class="side-badge sb-live">Live</span></a>
+        <a href="#gpu-status"><span class="side-icon">📊</span> GPU Status <span class="side-badge sb-live">Live</span></a>
+        <a href="#gpu-models"><span class="side-icon">📋</span> GPU Models <span class="side-badge sb-live">Free</span></a>
+    </div>
+    <div class="sidebar-section">
+        <div class="sidebar-heading">Search / RAG</div>
+        <a href="#search-web"><span class="side-icon">🔍</span> Web Search <span class="side-badge sb-live">Live</span></a>
+        <a href="#search-extract"><span class="side-icon">📄</span> Extract <span class="side-badge sb-live">Live</span></a>
+        <a href="#search-qna"><span class="side-icon">💡</span> Q&amp;A <span class="side-badge sb-live">Live</span></a>
+    </div>
+    <div class="sidebar-section">
         <div class="sidebar-heading">Compliance</div>
         <a href="#audit"><span class="side-icon">🛡️</span> Audit Trail</a>
         <a href="#tax"><span class="side-icon">🧮</span> Tax</a>
@@ -290,8 +302,8 @@
         <h1>x402 Primitives <span>Catalog</span></h1>
         <p>The full-stack pay-per-call API for crypto infrastructure. Every endpoint is x402-native — agents and developers pay USDC per request on Base. No API keys, no accounts, no subscriptions.</p>
         <div class="hero-meta">
-            <div class="hero-stat"><span class="hero-dot"></span> <strong>20</strong> Primitives</div>
-            <div class="hero-stat"><strong>6</strong> Categories</div>
+            <div class="hero-stat"><span class="hero-dot"></span> <strong>22</strong> Primitives</div>
+            <div class="hero-stat"><strong>8</strong> Categories</div>
             <div class="hero-stat"><strong>USDC</strong> on Base</div>
             <div class="hero-stat"><strong>gateway.spraay.app</strong></div>
         </div>
@@ -703,6 +715,130 @@ console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.5
         </div>
     </div>
 
+    <!-- ═══ GPU/COMPUTE ═══ -->
+    <div class="category-section cat-infra" id="cat-gpu">
+        <div class="category-header"><div class="category-icon">🖥️</div><h2>GPU / Compute</h2><span class="cat-count">3 endpoints</span></div>
+        <div class="endpoint-grid">
+            <div class="endpoint-card" id="gpu-run" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> x402 GPU Run</div><div class="card-desc">Run AI model inference via Replicate — image, video, LLM, audio, utility</div></div>
+                    <div class="card-endpoint">/api/v1/gpu/run</div>
+                    <div class="card-price">$0.05 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">model</span> <span class="param-type">string</span> <span class="param-desc">— Shortcut (flux-pro, llama-70b, whisper) or full ID</span></li><li><span class="param-name">input</span> <span class="param-type">object</span> <span class="param-desc">— Model-specific inputs</span></li><li><span class="param-name">version</span> <span class="param-type">string?</span> <span class="param-desc">— Specific model version (optional)</span></li><li><span class="param-name">webhook</span> <span class="param-type">string?</span> <span class="param-desc">— Async result delivery URL</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Live</span><span class="meta-item"><strong>Provider:</strong> Replicate</span><span class="meta-item"><strong>13</strong> model shortcuts</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> img = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/gpu/run"</span>, {
+    model: <span class="str">"flux-pro"</span>,
+    input: {
+      prompt: <span class="str">"a serene mountain lake"</span>
+    }
+  }
+);
+<span class="cmt">// { id: "abc123", status: "succeeded",
+//   output: ["https://replicate.delivery/..."] }</span></pre></div><a href="https://gateway.spraay.app/api/v1/gpu/models" target="_blank" class="try-btn">▶ Browse models (free)</a></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="gpu-status" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> x402 GPU Status</div><div class="card-desc">Poll prediction status for async GPU jobs (video gen, large models)</div></div>
+                    <div class="card-endpoint">/api/v1/gpu/status/:id</div>
+                    <div class="card-price">$0.002 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">id</span> <span class="param-type">string</span> <span class="param-desc">— Prediction ID from /gpu/run</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> status = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/gpu/status/abc123xyz"</span>
+);
+<span class="cmt">// { id: "abc123xyz", status: "succeeded",
+//   output: [...], metrics: { predict_time: 4.2 } }</span></pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="gpu-models" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> x402 GPU Models</div><div class="card-desc">List available model shortcuts — image, video, LLM, audio, utility</div></div>
+                    <div class="card-endpoint">/api/v1/gpu/models</div>
+                    <div class="card-price">FREE</div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>No parameters required</h4><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Live</span><span class="meta-item"><strong>Cost:</strong> Free</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> models = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/gpu/models"</span>
+);
+<span class="cmt">// { total: 13, categories: {
+//   image: [{ shortcut: "flux-pro", ... }],
+//   video: [...], llm: [...], ... } }</span></pre></div><a href="https://gateway.spraay.app/api/v1/gpu/models" target="_blank" class="try-btn">▶ Try it live</a></div>
+                </div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ SEARCH/RAG ═══ -->
+    <div class="category-section cat-data" id="cat-search">
+        <div class="category-header"><div class="category-icon">🔍</div><h2>Search / RAG</h2><span class="cat-count">3 endpoints</span></div>
+        <div class="endpoint-grid">
+            <div class="endpoint-card" id="search-web" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> x402 Web Search</div><div class="card-desc">Clean, LLM-ready web search results via Tavily — basic or advanced depth</div></div>
+                    <div class="card-endpoint">/api/v1/search/web</div>
+                    <div class="card-price">$0.01 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">query</span> <span class="param-type">string</span> <span class="param-desc">— Search query</span></li><li><span class="param-name">search_depth</span> <span class="param-type">string?</span> <span class="param-desc">— "basic" (default) or "advanced"</span></li><li><span class="param-name">max_results</span> <span class="param-type">number?</span> <span class="param-desc">— 1-20 (default: 5)</span></li><li><span class="param-name">topic</span> <span class="param-type">string?</span> <span class="param-desc">— "general" | "news" | "finance"</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Live</span><span class="meta-item"><strong>Provider:</strong> Tavily</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> results = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/search/web"</span>, {
+    query: <span class="str">"x402 protocol ecosystem"</span>,
+    search_depth: <span class="str">"basic"</span>,
+    max_results: <span class="num">5</span>
+  }
+);
+<span class="cmt">// { answer: "x402 is an open...",
+//   results: [{ title, url, content }] }</span></pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="search-extract" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> x402 Extract</div><div class="card-desc">Pull clean content from URLs for RAG pipelines — up to 5 URLs</div></div>
+                    <div class="card-endpoint">/api/v1/search/extract</div>
+                    <div class="card-price">$0.015 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">urls</span> <span class="param-type">string[]</span> <span class="param-desc">— 1-5 URLs to extract content from</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> content = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/search/extract"</span>, {
+    urls: [<span class="str">"https://docs.base.org/overview"</span>]
+  }
+);
+<span class="cmt">// { results: [{ url: "...",
+//   content: "Base is a secure..." }] }</span></pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="search-qna" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> x402 Q&amp;A</div><div class="card-desc">Ask a question, get a synthesized answer with cited sources</div></div>
+                    <div class="card-endpoint">/api/v1/search/qna</div>
+                    <div class="card-price">$0.02 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">query</span> <span class="param-type">string</span> <span class="param-desc">— Natural language question</span></li><li><span class="param-name">topic</span> <span class="param-type">string?</span> <span class="param-desc">— "general" | "news" | "finance"</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> answer = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/search/qna"</span>, {
+    query: <span class="str">"What is x402 protocol?"</span>
+  }
+);
+<span class="cmt">// { answer: "x402 is an open standard...",
+//   sources: [{ title, url, score }] }</span></pre></div></div>
+                </div></div>
+            </div>
+        </div>
+    </div>
+
     <!-- ═══ COMPLIANCE ═══ -->
     <div class="category-section cat-compliance" id="cat-compliance">
         <div class="category-header"><div class="category-icon">🛡️</div><h2>Compliance &amp; Audit</h2><span class="cat-count">2 endpoints</span></div>
@@ -756,7 +892,7 @@ console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.5
     <div class="integrations-section" id="integrations">
         <h2>Connect via</h2>
         <div class="integrations-grid">
-            <a href="https://smithery.ai/server/@plagtech/spraay-x402-mcp" target="_blank" class="int-card"><div class="int-icon">🔧</div><h3>MCP Server</h3><p>57 tools for Claude Desktop, Cursor, Cline. Install from Smithery.</p></a>
+            <a href="https://smithery.ai/server/@plagtech/spraay-x402-mcp" target="_blank" class="int-card"><div class="int-icon">🔧</div><h3>MCP Server</h3><p>63 tools for Claude Desktop, Cursor, Cline. Install from Smithery.</p></a>
             <a href="https://github.com/coinbase/agentkit/pull/944" target="_blank" class="int-card"><div class="int-icon">🤖</div><h3>Coinbase AgentKit</h3><p>Batch send action for any AgentKit-powered AI agent. PR #944.</p></a>
             <a href="https://gateway.spraay.app" target="_blank" class="int-card"><div class="int-icon">⚡</div><h3>Direct x402 Gateway</h3><p>Hit endpoints directly with any x402 client. USDC on Base.</p></a>
             <a href="https://github.com/plagtech" target="_blank" class="int-card"><div class="int-icon">💻</div><h3>SDKs &amp; Libraries</h3><p>TypeScript SDK, Solana SDK, Python CLI. Open source on GitHub.</p></a>
