@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spraay Docs – x402 Primitives Catalog</title>
-    <meta name="description" content="62 pay-per-call x402 endpoints for AI agents and developers. Batch payments, DeFi data, RPC, messaging, compliance and more. USDC on Base.">
+    <meta name="description" content="70 pay-per-call x402 endpoints for AI agents and developers. Batch payments, DeFi, RPC, messaging, Robot Task Protocol (RTP), and more. USDC on Base.">
     <meta property="og:title" content="Spraay Docs – x402 Primitives Catalog">
     <meta property="og:description" content="62 x402 primitives. Pay per call with USDC. No API keys, no accounts.">
     <meta property="og:type" content="website">
@@ -224,7 +224,7 @@
     <span class="topbar-label">Developer Docs</span>
     <div class="topbar-right">
         <span class="topbar-badge badge-live">Gateway Live</span>
-        <span class="topbar-badge badge-count">62 Primitives</span>
+        <span class="topbar-badge badge-count">70 Primitives</span>
         <a href="https://spraay.app" class="topbar-link">&larr; Back to App</a>
         <a href="https://github.com/plagtech/spraay-x402-mcp" class="topbar-link">GitHub</a>
         <a href="https://smithery.ai/server/@plagtech/spraay-x402-mcp" class="topbar-link">Smithery</a>
@@ -287,6 +287,15 @@
         <a href="#search-qna"><span class="side-icon">💡</span> Q&amp;A <span class="side-badge sb-live">Live</span></a>
     </div>
     <div class="sidebar-section">
+        <div class="sidebar-heading">Robotics / RTP</div>
+        <a href="#rtp-register"><span class="side-icon">🤖</span> Register Robot <span class="side-badge sb-live">Live</span></a>
+        <a href="#rtp-task"><span class="side-icon">📋</span> Dispatch Task <span class="side-badge sb-live">Live</span></a>
+        <a href="#rtp-complete"><span class="side-icon">✅</span> Complete Task <span class="side-badge sb-live">Live</span></a>
+        <a href="#rtp-list"><span class="side-icon">🔍</span> Discover Robots <span class="side-badge sb-live">Live</span></a>
+        <a href="#rtp-status"><span class="side-icon">📊</span> Task Status <span class="side-badge sb-live">Live</span></a>
+        <a href="#rtp-profile"><span class="side-icon">🪪</span> Robot Profile <span class="side-badge sb-live">Live</span></a>
+    </div>
+    <div class="sidebar-section">
         <div class="sidebar-heading">Compliance</div>
         <a href="#audit"><span class="side-icon">🛡️</span> Audit Trail</a>
         <a href="#tax"><span class="side-icon">🧮</span> Tax</a>
@@ -302,8 +311,8 @@
         <h1>x402 Primitives <span>Catalog</span></h1>
         <p>The full-stack pay-per-call API for crypto infrastructure. Every endpoint is x402-native — agents and developers pay USDC per request on Base. No API keys, no accounts, no subscriptions.</p>
         <div class="hero-meta">
-            <div class="hero-stat"><span class="hero-dot"></span> <strong>62</strong> Primitives</div>
-            <div class="hero-stat"><strong>11</strong> Categories</div>
+            <div class="hero-stat"><span class="hero-dot"></span> <strong>70</strong> Primitives</div>
+            <div class="hero-stat"><strong>12</strong> Categories</div>
             <div class="hero-stat"><strong>USDC</strong> on Base</div>
             <div class="hero-stat"><strong>gateway.spraay.app</strong></div>
         </div>
@@ -839,6 +848,143 @@ console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.5
         </div>
     </div>
 
+    <!-- ═══ ROBOTICS / RTP ═══ -->
+    <div class="category-section cat-infra" id="cat-rtp">
+        <div class="category-header"><div class="category-icon">🤖</div><h2>Robotics / RTP</h2><span class="cat-count">8 endpoints</span></div>
+        <p style="font-size:0.88rem;color:var(--text-dim);margin:-0.6rem 0 1.2rem;max-width:700px;">
+            <a href="https://github.com/plagtech/rtp-spec" target="_blank" style="color:var(--blue);font-weight:600;">Robot Task Protocol (RTP)</a> &mdash; the open standard for AI agents to discover, commission, and pay for physical robot tasks via x402. Proposed as an x402 extension in <a href="https://github.com/coinbase/x402/issues/1569" target="_blank" style="color:var(--blue);">#1569</a>.
+        </p>
+        <div class="endpoint-grid">
+            <div class="endpoint-card" id="rtp-register" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> RTP Register Robot</div><div class="card-desc">Register a robot with capabilities, pricing, and connection config</div></div>
+                    <div class="card-endpoint">/api/v1/robots/register</div>
+                    <div class="card-price">FREE</div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">&#9660;</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">name</span> <span class="param-type">string</span> <span class="param-desc">&mdash; Human-readable device name</span></li><li><span class="param-name">capabilities</span> <span class="param-type">string[]</span> <span class="param-desc">&mdash; e.g. ["pick", "place", "scan"]</span></li><li><span class="param-name">price_per_task</span> <span class="param-type">string</span> <span class="param-desc">&mdash; USDC per task (e.g. "0.05")</span></li><li><span class="param-name">payment_address</span> <span class="param-type">string</span> <span class="param-desc">&mdash; Operator wallet for payments</span></li><li><span class="param-name">connection</span> <span class="param-type">object</span> <span class="param-desc">&mdash; {type: "webhook"|"xmtp"|"wifi"|"websocket", webhookUrl: "..."}</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Live</span><span class="meta-item"><strong>Returns:</strong> robot_id, rtp_uri, x402_endpoint</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> robot = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/robots/register"</span>, {
+    name: <span class="str">"WarehouseBot-01"</span>,
+    capabilities: [<span class="str">"pick"</span>, <span class="str">"place"</span>, <span class="str">"scan"</span>],
+    price_per_task: <span class="str">"0.05"</span>,
+    payment_address: <span class="str">"0xYourWallet"</span>,
+    connection: {
+      type: <span class="str">"webhook"</span>,
+      webhookUrl: <span class="str">"https://yourserver.com/rtp/task"</span>
+    }
+  }
+);
+<span class="cmt">// { status: "registered",
+//   robot_id: "robo_138fd1f8e0ee51a",
+//   rtp_uri: "rtp://gateway.spraay.app/robo_..." }</span></pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="rtp-task" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> RTP Dispatch Task</div><div class="card-desc">Pay x402 to dispatch a task to a robot &mdash; escrow holds payment until completion</div></div>
+                    <div class="card-endpoint">/api/v1/robots/task</div>
+                    <div class="card-price">$0.05 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">&#9660;</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">robot_id</span> <span class="param-type">string</span> <span class="param-desc">&mdash; Target robot identifier</span></li><li><span class="param-name">task</span> <span class="param-type">string</span> <span class="param-desc">&mdash; Capability verb: pick, place, scan, deliver, etc.</span></li><li><span class="param-name">parameters</span> <span class="param-type">object</span> <span class="param-desc">&mdash; Task-specific params (e.g. {item, from_location})</span></li><li><span class="param-name">callback_url</span> <span class="param-type">string?</span> <span class="param-desc">&mdash; URL to receive result on completion</span></li><li><span class="param-name">timeout_seconds</span> <span class="param-type">number?</span> <span class="param-desc">&mdash; Max execution time (default: 60)</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Live</span><span class="meta-item"><strong>Payment:</strong> x402 + escrow</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/robots/task"</span>, {
+    robot_id: <span class="str">"robo_138fd1f8e0ee51a"</span>,
+    task: <span class="str">"pick"</span>,
+    parameters: {
+      item: <span class="str">"SKU-00421"</span>,
+      from_location: <span class="str">"bin_A3"</span>
+    },
+    timeout_seconds: <span class="num">60</span>
+  }
+);
+<span class="cmt">// { status: "DISPATCHED",
+//   task_id: "task_xyz789",
+//   escrow_id: "escrow_001" }</span></pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="rtp-complete" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> RTP Complete Task</div><div class="card-desc">Robot reports task result &mdash; triggers escrow release or refund</div></div>
+                    <div class="card-endpoint">/api/v1/robots/complete</div>
+                    <div class="card-price">FREE</div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">&#9660;</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">task_id</span> <span class="param-type">string</span> <span class="param-desc">&mdash; Task identifier from dispatch</span></li><li><span class="param-name">status</span> <span class="param-type">string</span> <span class="param-desc">&mdash; "COMPLETED" | "FAILED"</span></li><li><span class="param-name">result</span> <span class="param-type">object</span> <span class="param-desc">&mdash; {success, output, data, error}</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Live</span><span class="meta-item"><strong>Escrow:</strong> COMPLETED = released, FAILED = refunded</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/robots/complete"</span>, {
+    task_id: <span class="str">"task_xyz789"</span>,
+    status: <span class="str">"COMPLETED"</span>,
+    result: {
+      success: <span class="kw">true</span>,
+      output: <span class="str">"Picked SKU-00421 from bin_A3"</span>
+    }
+  }
+);
+<span class="cmt">// { task_id: "task_xyz789",
+//   status: "COMPLETED", escrow: "released" }</span></pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="rtp-list" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> RTP Discover Robots</div><div class="card-desc">Find registered robots &mdash; filter by capability, chain, max price, status</div></div>
+                    <div class="card-endpoint">/api/v1/robots/list</div>
+                    <div class="card-price">$0.005 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">&#9660;</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">capability</span> <span class="param-type">string?</span> <span class="param-desc">&mdash; Filter by verb: pick, scan, deliver, etc.</span></li><li><span class="param-name">chain</span> <span class="param-type">string?</span> <span class="param-desc">&mdash; Payment chain (default: base)</span></li><li><span class="param-name">max_price</span> <span class="param-type">string?</span> <span class="param-desc">&mdash; Max USDC per task</span></li><li><span class="param-name">status</span> <span class="param-type">string?</span> <span class="param-desc">&mdash; "online" | "offline" | "busy"</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> robots = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/robots/list?capability=pick&amp;max_price=0.10"</span>
+);
+<span class="cmt">// { robots: [{ robot_id: "robo_...",
+//   name: "WarehouseBot-01",
+//   capabilities: ["pick","place","scan"],
+//   price_per_task: "0.05" }], total: 1 }</span></pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="rtp-status" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> RTP Task Status</div><div class="card-desc">Poll task lifecycle: PENDING, DISPATCHED, IN_PROGRESS, COMPLETED, FAILED, TIMEOUT</div></div>
+                    <div class="card-endpoint">/api/v1/robots/status</div>
+                    <div class="card-price">$0.002 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">&#9660;</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">task_id</span> <span class="param-type">string</span> <span class="param-desc">&mdash; Task identifier to check</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> status = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/robots/status?task_id=task_xyz789"</span>
+);
+<span class="cmt">// { task_id: "task_xyz789",
+//   status: "COMPLETED",
+//   result: { success: true, output: "..." } }</span></pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="rtp-profile" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> RTP Robot Profile</div><div class="card-desc">Full robot capability profile, pricing, connection type, and metadata</div></div>
+                    <div class="card-endpoint">/api/v1/robots/profile</div>
+                    <div class="card-price">$0.002 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">&#9660;</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">robot_id</span> <span class="param-type">string</span> <span class="param-desc">&mdash; Robot identifier</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre><span class="kw">const</span> profile = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/robots/profile?robot_id=robo_138fd1f8e0ee51a"</span>
+);
+<span class="cmt">// { robot_id: "robo_...", name: "WarehouseBot-01",
+//   capabilities: ["pick","place","scan"],
+//   price_per_task: "0.05", status: "online",
+//   rtp_uri: "rtp://gateway.spraay.app/robo_..." }</span></pre></div></div>
+                </div></div>
+            </div>
+        </div>
+    </div>
+
     <!-- ═══ COMPLIANCE ═══ -->
     <div class="category-section cat-compliance" id="cat-compliance">
         <div class="category-header"><div class="category-icon">🛡️</div><h2>Compliance &amp; Audit</h2><span class="cat-count">2 endpoints</span></div>
@@ -896,6 +1042,7 @@ console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.5
             <a href="https://github.com/coinbase/agentkit/pull/944" target="_blank" class="int-card"><div class="int-icon">🤖</div><h3>Coinbase AgentKit</h3><p>Batch send action for any AgentKit-powered AI agent. PR #944.</p></a>
             <a href="https://gateway.spraay.app" target="_blank" class="int-card"><div class="int-icon">⚡</div><h3>Direct x402 Gateway</h3><p>Hit endpoints directly with any x402 client. USDC on Base.</p></a>
             <a href="https://github.com/plagtech" target="_blank" class="int-card"><div class="int-icon">💻</div><h3>SDKs &amp; Libraries</h3><p>TypeScript SDK, Solana SDK, Python CLI. Open source on GitHub.</p></a>
+            <a href="https://github.com/plagtech/rtp-spec" target="_blank" class="int-card"><div class="int-icon">🤖</div><h3>RTP Spec</h3><p>Robot Task Protocol v1.0 &mdash; open standard for AI agents hiring robots via x402.</p></a>
         </div>
     </div>
 
