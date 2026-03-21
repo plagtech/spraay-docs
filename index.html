@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spraay Docs – x402 Primitives Catalog</title>
-    <meta name="description" content="72 pay-per-call x402 endpoints for AI agents and developers. Batch payments, DeFi, RPC, messaging, Robot Task Protocol (RTP), and more. USDC on Base.">
+    <meta name="description" content="76 pay-per-call x402 endpoints for AI agents and developers. Batch payments, DeFi, RPC, messaging, Robot Task Protocol (RTP), Agent Wallets, and more. USDC on Base.">
     <meta property="og:title" content="Spraay Docs – x402 Primitives Catalog">
     <meta property="og:description" content="62 x402 primitives. Pay per call with USDC. No API keys, no accounts.">
     <meta property="og:type" content="website">
@@ -224,7 +224,7 @@
     <span class="topbar-label">Developer Docs</span>
     <div class="topbar-right">
         <span class="topbar-badge badge-live">Gateway Live</span>
-        <span class="topbar-badge badge-count">72 Primitives</span>
+        <span class="topbar-badge badge-count">76 Primitives</span>
         <a href="https://spraay.app" class="topbar-link">&larr; Back to App</a>
         <a href="https://github.com/plagtech/spraay-x402-mcp" class="topbar-link">GitHub</a>
         <a href="https://smithery.ai/server/@plagtech/spraay-x402-mcp" class="topbar-link">Smithery</a>
@@ -298,6 +298,14 @@
         <a href="#rtp-deregister"><span class="side-icon">🗑️</span> Deregister Robot <span class="side-badge sb-live">Live</span></a>
     </div>
     <div class="sidebar-section">
+        <div class="sidebar-heading">Agent Wallet</div>
+        <a href="#aw-provision"><span class="side-icon">👛</span> Provision Wallet <span class="side-badge sb-live">Live</span></a>
+        <a href="#aw-session-key"><span class="side-icon">🔑</span> Add Session Key <span class="side-badge sb-live">Live</span></a>
+        <a href="#aw-info"><span class="side-icon">📊</span> Wallet Info <span class="side-badge sb-live">Live</span></a>
+        <a href="#aw-revoke"><span class="side-icon">🚫</span> Revoke Key <span class="side-badge sb-live">Live</span></a>
+        <a href="#aw-predict"><span class="side-icon">🔮</span> Predict Address <span class="side-badge sb-live">Live</span></a>
+    </div>
+    <div class="sidebar-section">
         <div class="sidebar-heading">Compliance</div>
         <a href="#audit"><span class="side-icon">🛡️</span> Audit Trail</a>
         <a href="#tax"><span class="side-icon">🧮</span> Tax</a>
@@ -313,7 +321,7 @@
         <h1>x402 Primitives <span>Catalog</span></h1>
         <p>The full-stack pay-per-call API for crypto infrastructure. Every endpoint is x402-native — agents and developers pay USDC per request on Base. No API keys, no accounts, no subscriptions.</p>
         <div class="hero-meta">
-            <div class="hero-stat"><span class="hero-dot"></span> <strong>72</strong> Primitives</div>
+            <div class="hero-stat"><span class="hero-dot"></span> <strong>76</strong> Primitives</div>
             <div class="hero-stat"><strong>12</strong> Categories</div>
             <div class="hero-stat"><strong>USDC</strong> on Base</div>
             <div class="hero-stat"><strong>gateway.spraay.app</strong></div>
@@ -1071,6 +1079,98 @@ console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.5
 );
 <span class="cmt">// { gains: { short: "$420",
 //   long: "$1200" }, events: 84 }</span></pre></div></div>
+                </div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ AGENT WALLET (Category 17) ═══ -->
+    <div class="category-section cat-infra" id="cat-agent-wallet">
+        <div class="category-header"><div class="category-icon">👛</div><h2>Agent Wallet</h2><span class="cat-count">5 endpoints</span></div>
+        <p style="color:var(--text-dim);font-size:0.88rem;margin:-0.5rem 0 1.2rem;">Smart contract wallet provisioning for AI agents on Base. Forked from <a href="https://github.com/Abstract-Foundation/agw-contracts" target="_blank" style="color:var(--blue);font-weight:600;">Abstract Global Wallet</a> &mdash; factory-deployed minimal proxies with session keys, spending limits, and time-bound permissions.</p>
+        <div class="endpoint-grid">
+            <div class="endpoint-card" id="aw-provision" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Provision Agent Wallet</div><div class="card-desc">Deploy a smart contract wallet for an AI agent via CREATE2 factory</div></div>
+                    <div class="card-endpoint">/api/v1/agent-wallet/provision</div>
+                    <div class="card-price">$0.05</div>
+                    <div class="card-chevron">▾</div>
+                </div>
+                <div class="card-detail"><div class="card-detail-inner">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">agentId</span> <span class="param-type">string</span> <span class="param-desc">&mdash; Unique agent identifier</span></li><li><span class="param-name">agentType</span> <span class="param-type">string</span> <span class="param-desc">&mdash; Framework: "langchain" | "eliza" | "crewai" | "custom"</span></li><li><span class="param-name">mode</span> <span class="param-type">string</span> <span class="param-desc">&mdash; "managed" (server generates key) | "self-custody" (provide ownerAddress)</span></li><li><span class="param-name">ownerAddress</span> <span class="param-type">string</span> <span class="param-desc">&mdash; Required for self-custody mode</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Factory:</strong> <code style="font-size:0.7rem;">0xFBD832Db6D9a05A0434cd497707a1bDC43389CfD</code></span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre>
+<span class="cmt">// Provision a managed wallet for a LangChain agent</span>
+<span class="kw">const</span> wallet = <span class="kw">await</span> spraay.agentWallet.provision({
+  agentId: <span class="str">"trading-bot-007"</span>,
+  agentType: <span class="str">"langchain"</span>,
+  mode: <span class="str">"managed"</span>
+});
+<span class="cmt">// { walletAddress: "0x...", chainId: 8453,
+//   encryptedKey: "base64...", txHash: "0x..." }</span></pre></div></div>
+                </div></div>
+            </div>
+
+            <div class="endpoint-card" id="aw-session-key" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Add Session Key</div><div class="card-desc">Grant a temporary signer with spending limits, expiry, and target restrictions</div></div>
+                    <div class="card-endpoint">/api/v1/agent-wallet/session-key</div>
+                    <div class="card-price">$0.02</div>
+                    <div class="card-chevron">▾</div>
+                </div>
+                <div class="card-detail"><div class="card-detail-inner">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">walletAddress</span> <span class="param-type">string</span> <span class="param-desc">&mdash; Agent wallet contract address</span></li><li><span class="param-name">sessionKeyAddress</span> <span class="param-type">string</span> <span class="param-desc">&mdash; Address to authorize as session key</span></li><li><span class="param-name">spendLimitEth</span> <span class="param-type">string</span> <span class="param-desc">&mdash; Max ETH the session key can spend</span></li><li><span class="param-name">durationHours</span> <span class="param-type">number</span> <span class="param-desc">&mdash; Hours until session key expires</span></li><li><span class="param-name">allowedTargets</span> <span class="param-type">string[]</span> <span class="param-desc">&mdash; Whitelisted contract addresses (optional)</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre>
+<span class="cmt">// Add a session key: 0.5 ETH limit, 24 hours</span>
+<span class="kw">const</span> session = <span class="kw">await</span> spraay.agentWallet.addSessionKey({
+  walletAddress: <span class="str">"0xWallet..."</span>,
+  sessionKeyAddress: <span class="str">"0xSigner..."</span>,
+  spendLimitEth: <span class="str">"0.5"</span>,
+  durationHours: <span class="num">24</span>,
+  allowedTargets: [<span class="str">"0xBatchContract"</span>]
+});
+<span class="cmt">// { txHash: "0x...", expiresAt: "2026-03-21T..." }</span></pre></div></div>
+                </div></div>
+            </div>
+
+            <div class="endpoint-card" id="aw-info" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Wallet Info</div><div class="card-desc">Balance, metadata, owner, and active session keys for an agent wallet</div></div>
+                    <div class="card-endpoint">/api/v1/agent-wallet/info</div>
+                    <div class="card-price">$0.005</div>
+                    <div class="card-chevron">▾</div>
+                </div>
+                <div class="card-detail"><div class="card-detail-inner">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">address</span> <span class="param-type">string</span> <span class="param-desc">&mdash; Agent wallet contract address</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Example</h4><div class="detail-code"><pre>
+<span class="kw">const</span> info = <span class="kw">await</span> spraay.agentWallet.info({
+  address: <span class="str">"0xWallet..."</span>
+});
+<span class="cmt">// { balanceEth: "0.42", agentId: "trading-bot-007",
+//   agentType: "langchain", sessionKeys: [...] }</span></pre></div></div>
+                </div></div>
+            </div>
+
+            <div class="endpoint-card" id="aw-revoke" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Revoke Session Key</div><div class="card-desc">Immediately revoke a session key &mdash; on-chain + database</div></div>
+                    <div class="card-endpoint">/api/v1/agent-wallet/revoke-key</div>
+                    <div class="card-price">$0.02</div>
+                    <div class="card-chevron">▾</div>
+                </div>
+                <div class="card-detail"><div class="card-detail-inner">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">walletAddress</span> <span class="param-type">string</span> <span class="param-desc">&mdash; Agent wallet contract address</span></li><li><span class="param-name">sessionKeyAddress</span> <span class="param-type">string</span> <span class="param-desc">&mdash; Session key to revoke</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                </div></div>
+            </div>
+
+            <div class="endpoint-card" id="aw-predict" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Predict Address</div><div class="card-desc">Predict wallet address before deployment via CREATE2 &mdash; useful for pre-funding</div></div>
+                    <div class="card-endpoint">/api/v1/agent-wallet/predict</div>
+                    <div class="card-price">$0.001</div>
+                    <div class="card-chevron">▾</div>
+                </div>
+                <div class="card-detail"><div class="card-detail-inner">
+                    <div class="detail-section"><h4>Parameters</h4><ul class="detail-params"><li><span class="param-name">ownerAddress</span> <span class="param-type">string</span> <span class="param-desc">&mdash; Wallet owner address</span></li><li><span class="param-name">agentId</span> <span class="param-type">string</span> <span class="param-desc">&mdash; Agent identifier for salt generation</span></li></ul><div class="detail-meta"><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                 </div></div>
             </div>
         </div>
