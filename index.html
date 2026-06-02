@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spraay Docs – x402 Primitives Catalog</title>
-    <meta name="description" content="97 pay-per-call x402 endpoints (91 paid + 6 free) for AI agents and developers. Batch payments across 13+ chains, AI inference (200+ models + Bittensor SN64), DeFi, RPC, Robot Task Protocol (RTP), Supply Chain Task Protocol (SCTP), Agent Wallets, and more. USDC on Base & Solana.">
+    <meta name="description" content="116 pay-per-call x402 endpoints (110 paid + 6 free) for AI agents and developers. Batch payments across 15 chains, AI inference (200+ models + Bittensor SN64), DeFi, RPC, Robot Task Protocol (RTP), Supply Chain Task Protocol (SCTP), Agent Wallets, and more. USDC on Base & Solana.">
     <meta property="og:title" content="Spraay Docs – x402 Primitives Catalog">
-    <meta property="og:description" content="97 x402 primitives (91 paid + 6 free) across 13+ chains. Pay per call with USDC on Base &amp; Solana. No API keys, no accounts.">
+    <meta property="og:description" content="116 x402 primitives (110 paid + 6 free) across 13+ chains. Pay per call with USDC on Base &amp; Solana. No API keys, no accounts.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.spraay.app">
     <meta property="og:image" content="https://spraay.app/spraay-logo-1000x1000.png">
@@ -224,7 +224,7 @@
     <span class="topbar-label">Developer Docs</span>
     <div class="topbar-right">
         <span class="topbar-badge badge-live">Gateway Live</span>
-        <span class="topbar-badge badge-count">97 Primitives</span>
+        <span class="topbar-badge badge-count">116 Primitives</span>
         <a href="https://spraay.app" class="topbar-link">&larr; Back to App</a>
         <a href="https://github.com/plagtech/spraay-x402-mcp" class="topbar-link">GitHub</a>
         <a href="https://smithery.ai/server/@plagtech/spraay-x402-mcp" class="topbar-link">Smithery</a>
@@ -249,6 +249,8 @@
         <a href="#cat-analytics"><span class="side-icon">📊</span> Analytics <span class="side-badge sb-live">2</span></a>
         <a href="#cat-data"><span class="side-icon">📦</span> Balances &amp; Tokens <span class="side-badge sb-live">2</span></a>
         <a href="#cat-inference"><span class="side-icon">🧮</span> On-chain Inference <span class="side-badge sb-live">4</span></a>
+        <a href="#cat-compute"><span class="side-icon">⚙️</span> Managed Compute <span class="side-badge sb-live">8</span></a>
+        <a href="#cat-portfolio"><span class="side-icon">🗂️</span> Portfolio <span class="side-badge sb-live">2</span></a>
     </div>
     <div class="sidebar-section">
         <div class="sidebar-heading">Search / RAG</div>
@@ -268,11 +270,13 @@
         <a href="#cat-payroll"><span class="side-icon">💼</span> Payroll <span class="side-badge sb-live">3</span></a>
         <a href="#cat-invoice"><span class="side-icon">🧾</span> Invoicing <span class="side-badge sb-live">3</span></a>
         <a href="#cat-batch"><span class="side-icon">💸</span> Batch Payments <span class="side-badge sb-live">2</span></a>
+        <a href="#cat-defi"><span class="side-icon">🏛️</span> DeFi Positions <span class="side-badge sb-live">1</span></a>
     </div>
     <div class="sidebar-section">
         <div class="sidebar-heading">Chains</div>
         <a href="#cat-xrp"><span class="side-icon">💧</span> XRP Ledger <span class="side-badge sb-live">3</span></a>
         <a href="#cat-stellar"><span class="side-icon">⭐</span> Stellar <span class="side-badge sb-live">2</span></a>
+        <a href="#cat-solana"><span class="side-icon">◎</span> Solana <span class="side-badge sb-live">6</span></a>
     </div>
     <div class="sidebar-section">
         <div class="sidebar-heading">Infrastructure</div>
@@ -280,6 +284,7 @@
         <a href="#cat-storage"><span class="side-icon">📦</span> Storage <span class="side-badge sb-live">3</span></a>
         <a href="#cat-cron"><span class="side-icon">⏰</span> Cron <span class="side-badge sb-live">3</span></a>
         <a href="#cat-logs"><span class="side-icon">📜</span> Logs <span class="side-badge sb-live">2</span></a>
+        <a href="#cat-contract"><span class="side-icon">📃</span> Contract Calls <span class="side-badge sb-live">2</span></a>
     </div>
     <div class="sidebar-section">
         <div class="sidebar-heading">Compliance</div>
@@ -319,10 +324,10 @@
         <h1>x402 Primitives <span>Catalog</span></h1>
         <p>The full-stack pay-per-call API for crypto infrastructure. Every endpoint is x402-native — agents and developers pay USDC per request on Base &amp; Solana. No API keys, no accounts, no subscriptions.</p>
                 <div class="hero-meta">
-            <div class="hero-stat"><span class="hero-dot"></span> <strong>97</strong> Primitives</div>
-            <div class="hero-stat"><strong>91</strong> Paid</div>
+            <div class="hero-stat"><span class="hero-dot"></span> <strong>116</strong> Primitives</div>
+            <div class="hero-stat"><strong>110</strong> Paid</div>
             <div class="hero-stat"><strong>6</strong> Free</div>
-            <div class="hero-stat"><strong>31</strong> Categories</div>
+            <div class="hero-stat"><strong>36</strong> Categories</div>
             <div class="hero-stat"><strong>USDC</strong> on Base &amp; Solana</div>
             <div class="hero-stat"><strong>gateway.spraay.app</strong></div>
         </div>
@@ -1931,7 +1936,306 @@ console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.5
     </div>
 
 
+    <!-- ═══ MANAGED COMPUTE ═══ -->
+    <div class="category-section cat-data" id="cat-compute">
+        <div class="category-header"><div class="category-icon">⚙️</div><h2>Managed Compute</h2><span class="cat-count">8 endpoints</span></div>
+        <div class="endpoint-grid">
+            <div class="endpoint-card" id="api-v1-compute-text-inference" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Text Inference</div><div class="card-desc">LLM text inference across 11 models. Auto-routed, pay per call.</div></div>
+                    <div class="card-endpoint">/api/v1/compute/text-inference</div>
+                    <div class="card-price">$0.003–0.10 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">LLM text inference across 11 models. Auto-routed, pay per call.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.003–0.10 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/compute/text-inference"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-compute-image-generation" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Image Generation</div><div class="card-desc">AI image generation (FLUX, SDXL). Pay per image.</div></div>
+                    <div class="card-endpoint">/api/v1/compute/image-generation</div>
+                    <div class="card-price">$0.02–0.08 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">AI image generation (FLUX, SDXL). Pay per image.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.02–0.08 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/compute/image-generation"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-compute-video-generation" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Video Generation</div><div class="card-desc">AI video generation. Pay per render.</div></div>
+                    <div class="card-endpoint">/api/v1/compute/video-generation</div>
+                    <div class="card-price">$0.40–0.50 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">AI video generation. Pay per render.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.40–0.50 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/compute/video-generation"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-compute-text-to-speech" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Text To Speech</div><div class="card-desc">Text to speech (TTS). Pay per synthesis.</div></div>
+                    <div class="card-endpoint">/api/v1/compute/text-to-speech</div>
+                    <div class="card-price">$0.03–0.05 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Text to speech (TTS). Pay per synthesis.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.03–0.05 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/compute/text-to-speech"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-compute-speech-to-text" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Speech To Text</div><div class="card-desc">Speech to text (STT). Pay per transcription.</div></div>
+                    <div class="card-endpoint">/api/v1/compute/speech-to-text</div>
+                    <div class="card-price">$0.02 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Speech to text (STT). Pay per transcription.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.02 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/compute/speech-to-text"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-compute-embeddings" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Embeddings</div><div class="card-desc">Text embeddings for RAG pipelines.</div></div>
+                    <div class="card-endpoint">/api/v1/compute/embeddings</div>
+                    <div class="card-price">$0.005 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Text embeddings for RAG pipelines.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.005 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/compute/embeddings"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-compute-batch" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Batch</div><div class="card-desc">Batch compute — up to 50 jobs, 10% discount.</div></div>
+                    <div class="card-endpoint">/api/v1/compute/batch</div>
+                    <div class="card-price">$0.05 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Batch compute — up to 50 jobs, 10% discount.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.05 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/compute/batch"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-compute-status-jobid" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Status</div><div class="card-desc">Poll the status of a compute job by ID.</div></div>
+                    <div class="card-endpoint">/api/v1/compute/status/:jobId</div>
+                    <div class="card-price">$0.001 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Poll the status of a compute job by ID.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.001 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/compute/status/:jobId"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+        </div>
+    </div>
 
+    <!-- ═══ SOLANA (JUPITER / HELIUS / PYTH) ═══ -->
+    <div class="category-section cat-data" id="cat-solana">
+        <div class="category-header"><div class="category-icon">◎</div><h2>Solana — Jupiter / Helius / Pyth</h2><span class="cat-count">6 endpoints</span></div>
+        <div class="endpoint-grid">
+            <div class="endpoint-card" id="api-v1-solana-jupiter-quote" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Jupiter Quote</div><div class="card-desc">Get a Jupiter swap quote on Solana.</div></div>
+                    <div class="card-endpoint">/api/v1/solana/jupiter/quote</div>
+                    <div class="card-price">$0.005 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Get a Jupiter swap quote on Solana.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.005 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/solana/jupiter/quote"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-solana-jupiter-swap-tx" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Jupiter Swap Tx</div><div class="card-desc">Build a Jupiter swap transaction on Solana.</div></div>
+                    <div class="card-endpoint">/api/v1/solana/jupiter/swap-tx</div>
+                    <div class="card-price">$0.01 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Build a Jupiter swap transaction on Solana.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.01 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/solana/jupiter/swap-tx"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-solana-helius-assets-by-owner" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Helius Assets By Owner</div><div class="card-desc">Fetch Helius DAS assets owned by an address.</div></div>
+                    <div class="card-endpoint">/api/v1/solana/helius/assets-by-owner</div>
+                    <div class="card-price">$0.003 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Fetch Helius DAS assets owned by an address.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.003 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/solana/helius/assets-by-owner"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-solana-helius-asset" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Helius Asset</div><div class="card-desc">Fetch a single Helius DAS asset by ID.</div></div>
+                    <div class="card-endpoint">/api/v1/solana/helius/asset</div>
+                    <div class="card-price">$0.002 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Fetch a single Helius DAS asset by ID.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.002 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/solana/helius/asset"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-solana-pyth-price" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Pyth Price</div><div class="card-desc">Pyth price feed for a single asset.</div></div>
+                    <div class="card-endpoint">/api/v1/solana/pyth/price</div>
+                    <div class="card-price">$0.005 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Pyth price feed for a single asset.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.005 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/solana/pyth/price"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-solana-pyth-prices" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Pyth Prices</div><div class="card-desc">Pyth batch price feed for multiple assets.</div></div>
+                    <div class="card-endpoint">/api/v1/solana/pyth/prices</div>
+                    <div class="card-price">$0.008 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Pyth batch price feed for multiple assets.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.008 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/solana/pyth/prices"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ PORTFOLIO ═══ -->
+    <div class="category-section cat-data" id="cat-portfolio">
+        <div class="category-header"><div class="category-icon">🗂️</div><h2>Portfolio</h2><span class="cat-count">2 endpoints</span></div>
+        <div class="endpoint-grid">
+            <div class="endpoint-card" id="api-v1-portfolio-tokens" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Tokens</div><div class="card-desc">Full token portfolio for an address across supported chains.</div></div>
+                    <div class="card-endpoint">/api/v1/portfolio/tokens</div>
+                    <div class="card-price">$0.005 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Full token portfolio for an address across supported chains.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.005 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/portfolio/tokens"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-portfolio-nfts" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Nfts</div><div class="card-desc">NFT holdings for an address across supported chains.</div></div>
+                    <div class="card-endpoint">/api/v1/portfolio/nfts</div>
+                    <div class="card-price">$0.005 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">NFT holdings for an address across supported chains.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.005 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/portfolio/nfts"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ CONTRACT CALLS ═══ -->
+    <div class="category-section cat-infra" id="cat-contract">
+        <div class="category-header"><div class="category-icon">📃</div><h2>Contract Calls</h2><span class="cat-count">2 endpoints</span></div>
+        <div class="endpoint-grid">
+            <div class="endpoint-card" id="api-v1-contract-read" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Read</div><div class="card-desc">Read from any smart contract via a view/pure call.</div></div>
+                    <div class="card-endpoint">/api/v1/contract/read</div>
+                    <div class="card-price">$0.002 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Read from any smart contract via a view/pure call.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.002 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/contract/read"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-contract-write" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Write</div><div class="card-desc">Submit a state-changing smart contract transaction.</div></div>
+                    <div class="card-endpoint">/api/v1/contract/write</div>
+                    <div class="card-price">$0.01 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Submit a state-changing smart contract transaction.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.01 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/contract/write"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ DEFI POSITIONS ═══ -->
+    <div class="category-section cat-financial" id="cat-defi">
+        <div class="category-header"><div class="category-icon">🏛️</div><h2>DeFi Positions</h2><span class="cat-count">1 endpoint</span></div>
+        <div class="endpoint-grid">
+            <div class="endpoint-card" id="api-v1-defi-positions" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Positions</div><div class="card-desc">Open DeFi positions for an address across supported protocols.</div></div>
+                    <div class="card-endpoint">/api/v1/defi/positions</div>
+                    <div class="card-price">$0.008 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Open DeFi positions for an address across supported protocols.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.008 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/defi/positions"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+        </div>
+    </div>
 
     <!-- ═══ INTEGRATIONS ═══ -->
     <div class="integrations-section" id="integrations">
