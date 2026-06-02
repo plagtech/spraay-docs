@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Batch Payments for Agents (BPA) 1.0 — Specification</title>
+<meta name="description" content="Open specification for autonomous AI agents paying many recipients in one governed, verifiable batch via x402/MPP on Base, Ethereum, and Solana.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"></script>
+<style>
+  :root{
+    --ink:#15201c;
+    --ink-soft:#4a5a54;
+    --paper:#f6f4ee;
+    --paper-2:#fffdf8;
+    --line:#dcd8cd;
+    --accent:#0d6e63;       /* deep teal — 💧 */
+    --accent-soft:#0d6e6314;
+    --code-bg:#1c2623;
+    --code-ink:#e8efe9;
+    --measure:46rem;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Newsreader",Georgia,serif;font-size:19px;line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  code,pre,.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+
+  /* Masthead */
+  header.mast{
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,var(--paper-2),var(--paper));
+  }
+  .mast-inner{max-width:var(--measure);margin:0 auto;padding:2.6rem 1.5rem 2rem}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--accent);margin:0 0 .9rem}
+  h1.title{font-size:2.55rem;line-height:1.08;font-weight:600;margin:0;letter-spacing:-.01em}
+  .sub{color:var(--ink-soft);margin:.9rem 0 1.6rem;font-size:1.08rem}
+  .badges{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+  .badge{font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.04em;
+    border:1px solid var(--line);background:var(--paper-2);color:var(--ink-soft);
+    padding:.32rem .6rem;border-radius:999px}
+  .badge.live{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
+  .links{margin-top:1.3rem;display:flex;flex-wrap:wrap;gap:1.3rem;
+    font-family:"IBM Plex Mono",monospace;font-size:.82rem}
+  .links a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:1px}
+  .links a:hover{border-bottom-color:var(--accent)}
+
+  /* Document body */
+  main{max-width:var(--measure);margin:0 auto;padding:2.4rem 1.5rem 5rem}
+  #doc h1{font-size:1.9rem;font-weight:600;letter-spacing:-.01em;margin:3rem 0 1rem;
+    padding-top:1.4rem;border-top:1px solid var(--line)}
+  #doc h1:first-child{border-top:none;padding-top:0;margin-top:0}
+  #doc h2{font-size:1.4rem;font-weight:600;margin:2.4rem 0 .8rem}
+  #doc h3{font-size:1.12rem;font-weight:600;margin:1.8rem 0 .6rem}
+  #doc p{margin:.9rem 0}
+  #doc strong{font-weight:600}
+  #doc a{color:var(--accent);text-decoration:none;border-bottom:1px solid #0d6e6340}
+  #doc a:hover{border-bottom-color:var(--accent)}
+  #doc hr{border:none;border-top:1px solid var(--line);margin:2.2rem 0}
+  #doc ul,#doc ol{padding-left:1.3rem}
+  #doc li{margin:.4rem 0}
+  #doc blockquote{margin:1.4rem 0;padding:.9rem 1.2rem;border-left:3px solid var(--accent);
+    background:var(--accent-soft);border-radius:0 6px 6px 0;color:var(--ink-soft);font-size:.95em}
+  #doc blockquote p{margin:.4rem 0}
+  #doc code{font-size:.82em;background:#e7e3d8;padding:.12em .38em;border-radius:4px;color:#244} 
+  #doc pre{background:var(--code-bg);color:var(--code-ink);padding:1.1rem 1.2rem;border-radius:10px;
+    overflow:auto;font-size:.8rem;line-height:1.55;margin:1.2rem 0}
+  #doc pre code{background:none;color:inherit;padding:0;font-size:1em}
+  #doc table{border-collapse:collapse;width:100%;margin:1.3rem 0;font-size:.82rem;
+    font-family:"IBM Plex Mono",monospace}
+  #doc th,#doc td{border:1px solid var(--line);padding:.55rem .7rem;text-align:left;vertical-align:top}
+  #doc th{background:var(--paper-2);font-weight:600;letter-spacing:.02em}
+  #doc td code{word-break:break-all}
+
+  .status{font-family:"IBM Plex Mono",monospace;color:var(--ink-soft);font-size:.9rem;
+    text-align:center;padding:4rem 1rem}
+  footer{max-width:var(--measure);margin:0 auto;padding:2rem 1.5rem 4rem;border-top:1px solid var(--line);
+    font-family:"IBM Plex Mono",monospace;font-size:.76rem;color:var(--ink-soft)}
+  footer a{color:var(--accent);text-decoration:none}
+  @media(max-width:560px){h1.title{font-size:2rem}body{font-size:18px}}
+</style>
+</head>
+<body>
+<header class="mast">
+  <div class="mast-inner">
+    <p class="eyebrow">Spraay Protocol · Open Specification</p>
+    <h1 class="title">Batch Payments for Agents</h1>
+    <p class="sub">How an autonomous AI agent pays many recipients in a single, governed, verifiable batch — via x402 or MPP, on Base, Ethereum, and Solana.</p>
+    <div class="badges">
+      <span class="badge live">v1.0 — Final</span>
+      <span class="badge">CC-BY-4.0</span>
+      <span class="badge">x402 · MPP · MCP</span>
+    </div>
+    <nav class="links">
+      <a href="https://github.com/plagtech/bpa-spec">Source on GitHub ↗</a>
+      <a href="./disbursement-request.schema.json">Request JSON Schema</a>
+      <a href="https://gateway.spraay.app">Reference gateway ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <article id="doc"><div class="status" id="status">Loading specification…</div></article>
+</main>
+
+<footer>
+  Canonical: <a href="https://docs.spraay.app/bpa/1.0/">docs.spraay.app/bpa/1.0</a> ·
+  Reference implementation: <a href="https://gateway.spraay.app">gateway.spraay.app</a> ·
+  Source: <a href="https://github.com/plagtech/bpa-spec">plagtech/bpa-spec</a>
+</footer>
+
+<script>
+  const RAW = "https://raw.githubusercontent.com/plagtech/bpa-spec/main/1.0/BATCH-PAYMENTS-FOR-AGENTS-1.0.md";
+  const doc = document.getElementById("doc");
+  const status = document.getElementById("status");
+  fetch(RAW)
+    .then(r => { if(!r.ok) throw new Error(r.status); return r.text(); })
+    .then(md => {
+      // Drop the duplicate H1 title block (the masthead already shows it)
+      marked.setOptions({ gfm:true, headerIds:true, mangle:false });
+      doc.innerHTML = marked.parse(md);
+    })
+    .catch(() => {
+      status.innerHTML = 'Could not load the spec from GitHub. Read it directly at ' +
+        '<a href="https://github.com/plagtech/bpa-spec/blob/main/1.0/BATCH-PAYMENTS-FOR-AGENTS-1.0.md">plagtech/bpa-spec</a>.';
+    });
+</script>
+</body>
+</html>
