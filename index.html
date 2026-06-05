@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spraay Docs – x402 Primitives Catalog</title>
-    <meta name="description" content="116 pay-per-call x402 endpoints (110 paid + 6 free) for AI agents and developers. Batch payments across 15 chains, AI inference (200+ models + Bittensor SN64), DeFi, RPC, Robot Task Protocol (RTP), Supply Chain Task Protocol (SCTP), Agent Wallets, and more. USDC on Base & Solana.">
+    <meta name="description" content="157 pay-per-call x402 endpoints (151 paid + 6 free) for AI agents and developers. Batch payments across 15 chains, AI inference (200+ models + Bittensor SN64), DeFi, RPC, Robot Task Protocol (RTP), Supply Chain Task Protocol (SCTP), Agent Wallets, and more. USDC on Base & Solana.">
     <meta property="og:title" content="Spraay Docs – x402 Primitives Catalog">
-    <meta property="og:description" content="116 x402 primitives (110 paid + 6 free) across 13+ chains. Pay per call with USDC on Base &amp; Solana. No API keys, no accounts.">
+    <meta property="og:description" content="157 x402 primitives (151 paid + 6 free) across 15+ chains. Pay per call with USDC on Base &amp; Solana. No API keys, no accounts.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.spraay.app">
     <meta property="og:image" content="https://spraay.app/spraay-logo-1000x1000.png">
@@ -224,7 +224,7 @@
     <span class="topbar-label">Developer Docs</span>
     <div class="topbar-right">
         <span class="topbar-badge badge-live">Gateway Live</span>
-        <span class="topbar-badge badge-count">116 Primitives</span>
+        <span class="topbar-badge badge-count">157 Primitives</span>
         <a href="https://spraay.app" class="topbar-link">&larr; Back to App</a>
         <a href="https://docs.spraay.app/bpa/1.0/" class="topbar-link">BPA Spec</a>
         <a href="https://live.spraay.app" class="topbar-link">Live</a>
@@ -294,6 +294,11 @@
         <a href="#cat-tax"><span class="side-icon">🧾</span> Tax &amp; Reports <span class="side-badge sb-live">2</span></a>
     </div>
     <div class="sidebar-section">
+        <div class="sidebar-heading">Research &amp; Geo</div>
+        <a href="#cat-research"><span class="side-icon">📚</span> Research &amp; Reference <span class="side-badge sb-live">23</span></a>
+        <a href="#cat-geo"><span class="side-icon">🌍</span> Geospatial <span class="side-badge sb-live">12</span></a>
+    </div>
+    <div class="sidebar-section">
         <div class="sidebar-heading">Identity &amp; Access</div>
         <a href="#cat-kyc"><span class="side-icon">🪪</span> KYC/KYB <span class="side-badge sb-live">2</span></a>
         <a href="#cat-auth"><span class="side-icon">🔐</span> Auth Sessions <span class="side-badge sb-live">2</span></a>
@@ -326,10 +331,10 @@
         <h1>x402 Primitives <span>Catalog</span></h1>
         <p>The full-stack pay-per-call API for crypto infrastructure. Every endpoint is x402-native — agents and developers pay USDC per request on Base &amp; Solana. No API keys, no accounts, no subscriptions.</p>
                 <div class="hero-meta">
-            <div class="hero-stat"><span class="hero-dot"></span> <strong>116</strong> Primitives</div>
-            <div class="hero-stat"><strong>110</strong> Paid</div>
+            <div class="hero-stat"><span class="hero-dot"></span> <strong>157</strong> Primitives</div>
+            <div class="hero-stat"><strong>151</strong> Paid</div>
             <div class="hero-stat"><strong>6</strong> Free</div>
-            <div class="hero-stat"><strong>36</strong> Categories</div>
+            <div class="hero-stat"><strong>39</strong> Categories</div>
             <div class="hero-stat"><strong>USDC</strong> on Base &amp; Solana</div>
             <div class="hero-stat"><strong>gateway.spraay.app</strong></div>
         </div>
@@ -2234,6 +2239,601 @@ console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.5
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Open DeFi positions for an address across supported protocols.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.008 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
   <span class="str">"/api/v1/defi/positions"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ COMPUTE FUTURES ═══ -->
+    <div class="category-section cat-financial" id="cat-compute-futures">
+        <div class="category-header"><div class="category-icon">🔮</div><h2>Compute Futures</h2><span class="cat-count">6 endpoints</span></div>
+        <div class="endpoint-grid">
+            <div class="endpoint-card" id="api-v1-compute-futures-deposit" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Deposit</div><div class="card-desc">Deposit USDC to open a prepaid compute credit account. Tier discounts: $10+ (5%), $50+ (10%), $200+ (15%).</div></div>
+                    <div class="card-endpoint">/api/v1/compute-futures/deposit</div>
+                    <div class="card-price">$0.01 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Deposit USDC to open a prepaid compute credit account. Tier discounts: $10+ (5%), $50+ (10%), $200+ (15%). Draw down per inference, refund unused balance anytime.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.01 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/compute-futures/deposit"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-compute-futures-balance" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Balance</div><div class="card-desc">Check remaining compute credit balance, tier, discount, and usage stats.</div></div>
+                    <div class="card-endpoint">/api/v1/compute-futures/balance</div>
+                    <div class="card-price">$0.001 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Check remaining compute credit balance, tier, discount, and usage stats for a futures account.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.001 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/compute-futures/balance"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-compute-futures-execute" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Execute</div><div class="card-desc">Run a compute job and deduct cost from prepaid balance. No per-call x402 — uses credit balance.</div></div>
+                    <div class="card-endpoint">/api/v1/compute-futures/execute</div>
+                    <div class="card-price">$0.001 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Run a compute job (text-inference, image-gen, video-gen, TTS, STT, embeddings) and deduct cost from the prepaid balance instead of paying per call. Tier discount applied automatically.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.001 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/compute-futures/execute"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-compute-futures-history" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> History</div><div class="card-desc">Full usage ledger — every job, model, price, and balance change.</div></div>
+                    <div class="card-endpoint">/api/v1/compute-futures/history</div>
+                    <div class="card-price">$0.002 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Full usage ledger for a compute futures account — every job, model, price, and balance change. For accounting and reconciliation.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.002 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/compute-futures/history"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-compute-futures-refund" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Refund</div><div class="card-desc">Refund unused compute credit balance to the depositor. Depositor only.</div></div>
+                    <div class="card-endpoint">/api/v1/compute-futures/refund</div>
+                    <div class="card-price">$0.01 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Refund the unused compute credit balance back to the original depositor. Only the depositor can request a refund.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.01 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/compute-futures/refund"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-compute-futures-pricing" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Pricing</div><div class="card-desc">Tier discounts, per-model costs, and bulk discount info.</div></div>
+                    <div class="card-endpoint">/api/v1/compute-futures/pricing</div>
+                    <div class="card-price">$0.001 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Compute futures pricing — tier discounts, per-model costs, and bulk discount info. Call before deposit to evaluate tiers.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.001 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/compute-futures/pricing"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ RESEARCH & REFERENCE ═══ -->
+    <div class="category-section cat-data" id="cat-research">
+        <div class="category-header"><div class="category-icon">📚</div><h2>Research &amp; Reference</h2><span class="cat-count">23 endpoints</span></div>
+        <div class="endpoint-grid">
+            <div class="endpoint-card" id="api-v1-research-dictionary-define" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Dictionary Define</div><div class="card-desc">Dictionary definition with phonetics and examples.</div></div>
+                    <div class="card-endpoint">/api/v1/research/dictionary/define</div>
+                    <div class="card-price">$0.001 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Dictionary definition with phonetics and examples.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.001 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/research/dictionary/define"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-research-dictionary-synonyms" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Dictionary Synonyms</div><div class="card-desc">Synonyms and antonyms for a word.</div></div>
+                    <div class="card-endpoint">/api/v1/research/dictionary/synonyms</div>
+                    <div class="card-price">$0.001 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Synonyms and antonyms for a word.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.001 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/research/dictionary/synonyms"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-research-dictionary-phonetics" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Dictionary Phonetics</div><div class="card-desc">Phonetic transcription and audio URL.</div></div>
+                    <div class="card-endpoint">/api/v1/research/dictionary/phonetics</div>
+                    <div class="card-price">$0.001 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Phonetic transcription and audio URL.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.001 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/research/dictionary/phonetics"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-research-papers-search" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Papers Search</div><div class="card-desc">Search 250M+ academic papers (OpenAlex CC0).</div></div>
+                    <div class="card-endpoint">/api/v1/research/papers/search</div>
+                    <div class="card-price">$0.002 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Search 250M+ academic papers (OpenAlex CC0).</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.002 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/research/papers/search"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-research-papers-by-doi" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Papers By DOI</div><div class="card-desc">Paper metadata by DOI (OpenAlex).</div></div>
+                    <div class="card-endpoint">/api/v1/research/papers/by-doi</div>
+                    <div class="card-price">$0.001 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Paper metadata by DOI (OpenAlex).</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.001 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/research/papers/by-doi"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-research-papers-by-author" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Papers By Author</div><div class="card-desc">Papers by author name or ORCID (OpenAlex).</div></div>
+                    <div class="card-endpoint">/api/v1/research/papers/by-author</div>
+                    <div class="card-price">$0.002 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Papers by author name or ORCID (OpenAlex).</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.002 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/research/papers/by-author"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-research-papers-citations" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Papers Citations</div><div class="card-desc">Citation graph — cited-by count and references.</div></div>
+                    <div class="card-endpoint">/api/v1/research/papers/citations</div>
+                    <div class="card-price">$0.002 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Citation graph — cited-by count and references.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.002 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/research/papers/citations"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-research-papers-trending" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Papers Trending</div><div class="card-desc">Trending papers by topic in the last N days.</div></div>
+                    <div class="card-endpoint">/api/v1/research/papers/trending</div>
+                    <div class="card-price">$0.002 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Trending papers by topic in the last N days.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.002 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/research/papers/trending"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-research-preprints-search" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Preprints Search</div><div class="card-desc">Search arXiv preprints by keyword and category.</div></div>
+                    <div class="card-endpoint">/api/v1/research/preprints/search</div>
+                    <div class="card-price">$0.002 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Search arXiv preprints by keyword and category.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.002 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/research/preprints/search"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-research-preprints-by-id" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Preprints By ID</div><div class="card-desc">arXiv preprint metadata by ID.</div></div>
+                    <div class="card-endpoint">/api/v1/research/preprints/by-id</div>
+                    <div class="card-price">$0.001 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">arXiv preprint metadata by ID.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.001 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/research/preprints/by-id"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-research-preprints-recent" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Preprints Recent</div><div class="card-desc">Latest arXiv preprints by category.</div></div>
+                    <div class="card-endpoint">/api/v1/research/preprints/recent</div>
+                    <div class="card-price">$0.002 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Latest arXiv preprints by category.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.002 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/research/preprints/recent"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-research-scholarly-by-doi" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Scholarly By DOI</div><div class="card-desc">Full Crossref metadata for any DOI.</div></div>
+                    <div class="card-endpoint">/api/v1/research/scholarly/by-doi</div>
+                    <div class="card-price">$0.001 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Full Crossref metadata for any DOI.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.001 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/research/scholarly/by-doi"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-research-scholarly-search" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Scholarly Search</div><div class="card-desc">Search 150M+ works via Crossref (CC0).</div></div>
+                    <div class="card-endpoint">/api/v1/research/scholarly/search</div>
+                    <div class="card-price">$0.002 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Search 150M+ works via Crossref (CC0).</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.002 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/research/scholarly/search"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-research-scholarly-citations-count" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Scholarly Citations Count</div><div class="card-desc">Citation count and references for a DOI.</div></div>
+                    <div class="card-endpoint">/api/v1/research/scholarly/citations-count</div>
+                    <div class="card-price">$0.001 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Citation count and references for a DOI.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.001 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/research/scholarly/citations-count"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-research-scholarly-journal-info" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Scholarly Journal Info</div><div class="card-desc">Journal metadata by ISSN.</div></div>
+                    <div class="card-endpoint">/api/v1/research/scholarly/journal-info</div>
+                    <div class="card-price">$0.001 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Journal metadata by ISSN.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.001 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/research/scholarly/journal-info"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-research-chemistry-compound" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Chemistry Compound</div><div class="card-desc">PubChem compound by name, formula, or CID.</div></div>
+                    <div class="card-endpoint">/api/v1/research/chemistry/compound</div>
+                    <div class="card-price">$0.002 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">PubChem compound by name, formula, or CID.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.002 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/research/chemistry/compound"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-research-chemistry-similarity" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Chemistry Similarity</div><div class="card-desc">Find structurally similar compounds in PubChem.</div></div>
+                    <div class="card-endpoint">/api/v1/research/chemistry/similarity</div>
+                    <div class="card-price">$0.002 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Find structurally similar compounds in PubChem.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.002 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/research/chemistry/similarity"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-research-chemistry-bioactivity" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Chemistry Bioactivity</div><div class="card-desc">Biological assay results for a PubChem compound.</div></div>
+                    <div class="card-endpoint">/api/v1/research/chemistry/bioactivity</div>
+                    <div class="card-price">$0.002 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Biological assay results for a PubChem compound.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.002 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/research/chemistry/bioactivity"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-research-biomedical-search" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Biomedical Search</div><div class="card-desc">Search 36M+ biomedical papers in PubMed.</div></div>
+                    <div class="card-endpoint">/api/v1/research/biomedical/search</div>
+                    <div class="card-price">$0.002 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Search 36M+ biomedical papers in PubMed.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.002 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/research/biomedical/search"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-research-biomedical-by-pmid" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Biomedical By PMID</div><div class="card-desc">Paper metadata by PubMed ID.</div></div>
+                    <div class="card-endpoint">/api/v1/research/biomedical/by-pmid</div>
+                    <div class="card-price">$0.001 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Paper metadata by PubMed ID.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.001 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/research/biomedical/by-pmid"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-research-biomedical-related" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Biomedical Related</div><div class="card-desc">Related articles for a PubMed ID.</div></div>
+                    <div class="card-endpoint">/api/v1/research/biomedical/related</div>
+                    <div class="card-price">$0.002 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Related articles for a PubMed ID.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.002 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/research/biomedical/related"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-research-demographics-census" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Demographics Census</div><div class="card-desc">US Census data by state, county, or zip.</div></div>
+                    <div class="card-endpoint">/api/v1/research/demographics/census</div>
+                    <div class="card-price">$0.001 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">US Census data by state, county, or zip.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.001 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/research/demographics/census"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-research-demographics-datasets" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Demographics Datasets</div><div class="card-desc">Search Data.gov datasets by keyword.</div></div>
+                    <div class="card-endpoint">/api/v1/research/demographics/datasets</div>
+                    <div class="card-price">$0.001 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Search Data.gov datasets by keyword.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.001 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/research/demographics/datasets"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ GEOSPATIAL ═══ -->
+    <div class="category-section cat-infra" id="cat-geo">
+        <div class="category-header"><div class="category-icon">🌍</div><h2>Geospatial</h2><span class="cat-count">12 endpoints</span></div>
+        <div class="endpoint-grid">
+            <div class="endpoint-card" id="api-v1-geo-geocode" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Geocode</div><div class="card-desc">Geocode an address or place to lat/lng coordinates. Powered by OpenStreetMap.</div></div>
+                    <div class="card-endpoint">/api/v1/geo/geocode</div>
+                    <div class="card-price">$0.005 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Geocode an address or place to lat/lng coordinates. Powered by OpenStreetMap.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.005 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/geo/geocode"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-geo-reverse-geocode" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Reverse Geocode</div><div class="card-desc">Reverse geocode lat/lng to an address. Powered by OpenStreetMap.</div></div>
+                    <div class="card-endpoint">/api/v1/geo/reverse-geocode</div>
+                    <div class="card-price">$0.005 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Reverse geocode lat/lng to an address. Powered by OpenStreetMap.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.005 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/geo/reverse-geocode"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-geo-route" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Route</div><div class="card-desc">Turn-by-turn directions between waypoints with distance and duration. Driving, cycling, walking.</div></div>
+                    <div class="card-endpoint">/api/v1/geo/route</div>
+                    <div class="card-price">$0.01 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Turn-by-turn directions between waypoints with distance and duration. Driving, cycling, walking.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.01 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/geo/route"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-geo-isochrone" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Isochrone</div><div class="card-desc">Reachability polygon — area reachable within N seconds from a point. Delivery zones, coverage areas.</div></div>
+                    <div class="card-endpoint">/api/v1/geo/isochrone</div>
+                    <div class="card-price">$0.02 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Reachability polygon — area reachable within N seconds from a point. Delivery zones, coverage areas.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.02 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/geo/isochrone"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-geo-elevation" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Elevation</div><div class="card-desc">Terrain elevation at one or more coordinates. SRTM 30m resolution.</div></div>
+                    <div class="card-endpoint">/api/v1/geo/elevation</div>
+                    <div class="card-price">$0.003 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Terrain elevation at one or more coordinates. SRTM 30m resolution.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.003 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/geo/elevation"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-geo-weather" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Weather</div><div class="card-desc">Current weather and 24h forecast at coordinates. Temperature, wind, humidity, precipitation.</div></div>
+                    <div class="card-endpoint">/api/v1/geo/weather</div>
+                    <div class="card-price">$0.01 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Current weather and 24h forecast at coordinates. Temperature, wind, humidity, precipitation.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.01 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/geo/weather"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-geo-weather-alerts" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Weather Alerts</div><div class="card-desc">Severe weather alerts at coordinates — storms, floods, heat, wind advisories.</div></div>
+                    <div class="card-endpoint">/api/v1/geo/weather-alerts</div>
+                    <div class="card-price">$0.01 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Severe weather alerts at coordinates — storms, floods, heat, wind advisories.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.01 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/geo/weather-alerts"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-geo-flight-status" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Flight Status</div><div class="card-desc">Real-time flight status, departure/arrival times, gates, aircraft, and delays. AeroDataBox.</div></div>
+                    <div class="card-endpoint">/api/v1/geo/flight-status</div>
+                    <div class="card-price">$0.05 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Real-time flight status, departure/arrival times, gates, aircraft, and delays. AeroDataBox.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.05 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/geo/flight-status"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-geo-airport-info" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Airport Info</div><div class="card-desc">Airport details — location, timezone, elevation, IATA/ICAO codes, country. AeroDataBox.</div></div>
+                    <div class="card-endpoint">/api/v1/geo/airport-info</div>
+                    <div class="card-price">$0.03 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Airport details — location, timezone, elevation, IATA/ICAO codes, country. AeroDataBox.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.03 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/geo/airport-info"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-geo-distance-matrix" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Distance Matrix</div><div class="card-desc">Distance and duration matrix between multiple origin-destination pairs. Fleet dispatch, nearest facility.</div></div>
+                    <div class="card-endpoint">/api/v1/geo/distance-matrix</div>
+                    <div class="card-price">$0.02 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Distance and duration matrix between multiple origin-destination pairs. Fleet dispatch, nearest facility.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.02 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/geo/distance-matrix"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-geo-nearby" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Nearby</div><div class="card-desc">Find points of interest near coordinates — gas stations, hospitals, helipads, etc.</div></div>
+                    <div class="card-endpoint">/api/v1/geo/nearby</div>
+                    <div class="card-price">$0.005 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Find points of interest near coordinates — gas stations, hospitals, helipads, etc.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.005 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/geo/nearby"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-geo-timezone" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Timezone</div><div class="card-desc">Country and timezone info at coordinates.</div></div>
+                    <div class="card-endpoint">/api/v1/geo/timezone</div>
+                    <div class="card-price">$0.003 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Country and timezone info at coordinates.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.003 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/geo/timezone"</span>, {...}
 );</pre></div></div>
                 </div></div>
             </div>
