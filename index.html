@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spraay Docs – x402 Primitives Catalog</title>
-    <meta name="description" content="157 pay-per-call x402 endpoints (151 paid + 6 free) for AI agents and developers. Batch payments across 15 chains, AI inference (200+ models + Bittensor SN64), DeFi, RPC, Robot Task Protocol (RTP), Supply Chain Task Protocol (SCTP), Agent Wallets, and more. USDC on Base & Solana.">
+    <meta name="description" content="145 pay-per-call x402 endpoints (139 paid + 6 free) for AI agents and developers. Batch payments across 15 chains, AI inference (200+ models + Bittensor SN64), DeFi, RPC, Robot Task Protocol (RTP), Supply Chain Task Protocol (SCTP), Agent Wallets, and more. USDC on Base & Solana.">
     <meta property="og:title" content="Spraay Docs – x402 Primitives Catalog">
-    <meta property="og:description" content="157 x402 primitives (151 paid + 6 free) across 15+ chains. Pay per call with USDC on Base &amp; Solana. No API keys, no accounts.">
+    <meta property="og:description" content="145 x402 primitives (139 paid + 6 free) across 15+ chains. Pay per call with USDC on Base &amp; Solana. No API keys, no accounts.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.spraay.app">
     <meta property="og:image" content="https://spraay.app/spraay-logo-1000x1000.png">
@@ -224,7 +224,7 @@
     <span class="topbar-label">Developer Docs</span>
     <div class="topbar-right">
         <span class="topbar-badge badge-live">Gateway Live</span>
-        <span class="topbar-badge badge-count">157 Primitives</span>
+        <span class="topbar-badge badge-count">145 Primitives</span>
         <a href="https://spraay.app" class="topbar-link">&larr; Back to App</a>
         <a href="https://docs.spraay.app/bpa/1.0/" class="topbar-link">BPA Spec</a>
         <a href="https://live.spraay.app" class="topbar-link">Live</a>
@@ -294,9 +294,8 @@
         <a href="#cat-tax"><span class="side-icon">🧾</span> Tax &amp; Reports <span class="side-badge sb-live">2</span></a>
     </div>
     <div class="sidebar-section">
-        <div class="sidebar-heading">Research &amp; Geo</div>
+        <div class="sidebar-heading">Research</div>
         <a href="#cat-research"><span class="side-icon">📚</span> Research &amp; Reference <span class="side-badge sb-live">23</span></a>
-        <a href="#cat-geo"><span class="side-icon">🌍</span> Geospatial <span class="side-badge sb-live">12</span></a>
     </div>
     <div class="sidebar-section">
         <div class="sidebar-heading">Identity &amp; Access</div>
@@ -331,10 +330,10 @@
         <h1>x402 Primitives <span>Catalog</span></h1>
         <p>The full-stack pay-per-call API for crypto infrastructure. Every endpoint is x402-native — agents and developers pay USDC per request on Base &amp; Solana. No API keys, no accounts, no subscriptions.</p>
                 <div class="hero-meta">
-            <div class="hero-stat"><span class="hero-dot"></span> <strong>157</strong> Primitives</div>
-            <div class="hero-stat"><strong>151</strong> Paid</div>
+            <div class="hero-stat"><span class="hero-dot"></span> <strong>145</strong> Primitives</div>
+            <div class="hero-stat"><strong>139</strong> Paid</div>
             <div class="hero-stat"><strong>6</strong> Free</div>
-            <div class="hero-stat"><strong>39</strong> Categories</div>
+            <div class="hero-stat"><strong>38</strong> Categories</div>
             <div class="hero-stat"><strong>USDC</strong> on Base &amp; Solana</div>
             <div class="hero-stat"><strong>gateway.spraay.app</strong></div>
         </div>
@@ -2659,181 +2658,6 @@ console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.5
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Search Data.gov datasets by keyword.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.001 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
   <span class="str">"/api/v1/research/demographics/datasets"</span>
-);</pre></div></div>
-                </div></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ═══ GEOSPATIAL ═══ -->
-    <div class="category-section cat-infra" id="cat-geo">
-        <div class="category-header"><div class="category-icon">🌍</div><h2>Geospatial</h2><span class="cat-count">12 endpoints</span></div>
-        <div class="endpoint-grid">
-            <div class="endpoint-card" id="api-v1-geo-geocode" onclick="toggleCard(this)">
-                <div class="card-summary">
-                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Geocode</div><div class="card-desc">Geocode an address or place to lat/lng coordinates. Powered by OpenStreetMap.</div></div>
-                    <div class="card-endpoint">/api/v1/geo/geocode</div>
-                    <div class="card-price">$0.005 <span class="currency">USDC</span></div>
-                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
-                </div>
-                <div class="card-detail"><div class="detail-grid">
-                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Geocode an address or place to lat/lng coordinates. Powered by OpenStreetMap.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.005 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
-                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
-  <span class="str">"/api/v1/geo/geocode"</span>, {...}
-);</pre></div></div>
-                </div></div>
-            </div>
-            <div class="endpoint-card" id="api-v1-geo-reverse-geocode" onclick="toggleCard(this)">
-                <div class="card-summary">
-                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Reverse Geocode</div><div class="card-desc">Reverse geocode lat/lng to an address. Powered by OpenStreetMap.</div></div>
-                    <div class="card-endpoint">/api/v1/geo/reverse-geocode</div>
-                    <div class="card-price">$0.005 <span class="currency">USDC</span></div>
-                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
-                </div>
-                <div class="card-detail"><div class="detail-grid">
-                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Reverse geocode lat/lng to an address. Powered by OpenStreetMap.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.005 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
-                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
-  <span class="str">"/api/v1/geo/reverse-geocode"</span>, {...}
-);</pre></div></div>
-                </div></div>
-            </div>
-            <div class="endpoint-card" id="api-v1-geo-route" onclick="toggleCard(this)">
-                <div class="card-summary">
-                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Route</div><div class="card-desc">Turn-by-turn directions between waypoints with distance and duration. Driving, cycling, walking.</div></div>
-                    <div class="card-endpoint">/api/v1/geo/route</div>
-                    <div class="card-price">$0.01 <span class="currency">USDC</span></div>
-                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
-                </div>
-                <div class="card-detail"><div class="detail-grid">
-                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Turn-by-turn directions between waypoints with distance and duration. Driving, cycling, walking.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.01 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
-                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
-  <span class="str">"/api/v1/geo/route"</span>, {...}
-);</pre></div></div>
-                </div></div>
-            </div>
-            <div class="endpoint-card" id="api-v1-geo-isochrone" onclick="toggleCard(this)">
-                <div class="card-summary">
-                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Isochrone</div><div class="card-desc">Reachability polygon — area reachable within N seconds from a point. Delivery zones, coverage areas.</div></div>
-                    <div class="card-endpoint">/api/v1/geo/isochrone</div>
-                    <div class="card-price">$0.02 <span class="currency">USDC</span></div>
-                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
-                </div>
-                <div class="card-detail"><div class="detail-grid">
-                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Reachability polygon — area reachable within N seconds from a point. Delivery zones, coverage areas.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.02 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
-                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
-  <span class="str">"/api/v1/geo/isochrone"</span>, {...}
-);</pre></div></div>
-                </div></div>
-            </div>
-            <div class="endpoint-card" id="api-v1-geo-elevation" onclick="toggleCard(this)">
-                <div class="card-summary">
-                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Elevation</div><div class="card-desc">Terrain elevation at one or more coordinates. SRTM 30m resolution.</div></div>
-                    <div class="card-endpoint">/api/v1/geo/elevation</div>
-                    <div class="card-price">$0.003 <span class="currency">USDC</span></div>
-                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
-                </div>
-                <div class="card-detail"><div class="detail-grid">
-                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Terrain elevation at one or more coordinates. SRTM 30m resolution.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.003 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
-                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
-  <span class="str">"/api/v1/geo/elevation"</span>, {...}
-);</pre></div></div>
-                </div></div>
-            </div>
-            <div class="endpoint-card" id="api-v1-geo-weather" onclick="toggleCard(this)">
-                <div class="card-summary">
-                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Weather</div><div class="card-desc">Current weather and 24h forecast at coordinates. Temperature, wind, humidity, precipitation.</div></div>
-                    <div class="card-endpoint">/api/v1/geo/weather</div>
-                    <div class="card-price">$0.01 <span class="currency">USDC</span></div>
-                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
-                </div>
-                <div class="card-detail"><div class="detail-grid">
-                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Current weather and 24h forecast at coordinates. Temperature, wind, humidity, precipitation.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.01 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
-                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
-  <span class="str">"/api/v1/geo/weather"</span>, {...}
-);</pre></div></div>
-                </div></div>
-            </div>
-            <div class="endpoint-card" id="api-v1-geo-weather-alerts" onclick="toggleCard(this)">
-                <div class="card-summary">
-                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Weather Alerts</div><div class="card-desc">Severe weather alerts at coordinates — storms, floods, heat, wind advisories.</div></div>
-                    <div class="card-endpoint">/api/v1/geo/weather-alerts</div>
-                    <div class="card-price">$0.01 <span class="currency">USDC</span></div>
-                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
-                </div>
-                <div class="card-detail"><div class="detail-grid">
-                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Severe weather alerts at coordinates — storms, floods, heat, wind advisories.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.01 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
-                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
-  <span class="str">"/api/v1/geo/weather-alerts"</span>, {...}
-);</pre></div></div>
-                </div></div>
-            </div>
-            <div class="endpoint-card" id="api-v1-geo-flight-status" onclick="toggleCard(this)">
-                <div class="card-summary">
-                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Flight Status</div><div class="card-desc">Real-time flight status, departure/arrival times, gates, aircraft, and delays. AeroDataBox.</div></div>
-                    <div class="card-endpoint">/api/v1/geo/flight-status</div>
-                    <div class="card-price">$0.05 <span class="currency">USDC</span></div>
-                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
-                </div>
-                <div class="card-detail"><div class="detail-grid">
-                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Real-time flight status, departure/arrival times, gates, aircraft, and delays. AeroDataBox.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.05 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
-                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
-  <span class="str">"/api/v1/geo/flight-status"</span>, {...}
-);</pre></div></div>
-                </div></div>
-            </div>
-            <div class="endpoint-card" id="api-v1-geo-airport-info" onclick="toggleCard(this)">
-                <div class="card-summary">
-                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Airport Info</div><div class="card-desc">Airport details — location, timezone, elevation, IATA/ICAO codes, country. AeroDataBox.</div></div>
-                    <div class="card-endpoint">/api/v1/geo/airport-info</div>
-                    <div class="card-price">$0.03 <span class="currency">USDC</span></div>
-                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
-                </div>
-                <div class="card-detail"><div class="detail-grid">
-                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Airport details — location, timezone, elevation, IATA/ICAO codes, country. AeroDataBox.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.03 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
-                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
-  <span class="str">"/api/v1/geo/airport-info"</span>, {...}
-);</pre></div></div>
-                </div></div>
-            </div>
-            <div class="endpoint-card" id="api-v1-geo-distance-matrix" onclick="toggleCard(this)">
-                <div class="card-summary">
-                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Distance Matrix</div><div class="card-desc">Distance and duration matrix between multiple origin-destination pairs. Fleet dispatch, nearest facility.</div></div>
-                    <div class="card-endpoint">/api/v1/geo/distance-matrix</div>
-                    <div class="card-price">$0.02 <span class="currency">USDC</span></div>
-                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
-                </div>
-                <div class="card-detail"><div class="detail-grid">
-                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Distance and duration matrix between multiple origin-destination pairs. Fleet dispatch, nearest facility.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.02 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
-                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
-  <span class="str">"/api/v1/geo/distance-matrix"</span>, {...}
-);</pre></div></div>
-                </div></div>
-            </div>
-            <div class="endpoint-card" id="api-v1-geo-nearby" onclick="toggleCard(this)">
-                <div class="card-summary">
-                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Nearby</div><div class="card-desc">Find points of interest near coordinates — gas stations, hospitals, helipads, etc.</div></div>
-                    <div class="card-endpoint">/api/v1/geo/nearby</div>
-                    <div class="card-price">$0.005 <span class="currency">USDC</span></div>
-                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
-                </div>
-                <div class="card-detail"><div class="detail-grid">
-                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Find points of interest near coordinates — gas stations, hospitals, helipads, etc.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.005 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
-                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
-  <span class="str">"/api/v1/geo/nearby"</span>, {...}
-);</pre></div></div>
-                </div></div>
-            </div>
-            <div class="endpoint-card" id="api-v1-geo-timezone" onclick="toggleCard(this)">
-                <div class="card-summary">
-                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Timezone</div><div class="card-desc">Country and timezone info at coordinates.</div></div>
-                    <div class="card-endpoint">/api/v1/geo/timezone</div>
-                    <div class="card-price">$0.003 <span class="currency">USDC</span></div>
-                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
-                </div>
-                <div class="card-detail"><div class="detail-grid">
-                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Country and timezone info at coordinates.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.003 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
-                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
-  <span class="str">"/api/v1/geo/timezone"</span>, {...}
 );</pre></div></div>
                 </div></div>
             </div>
