@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spraay Docs – x402 Primitives Catalog</title>
-    <meta name="description" content="186 pay-per-call x402 endpoints (154 paid + 32 free) for AI agents and developers. One-line MCP install (183 tools), auto-provisioned wallet — no private key required. Batch payments across 15 chains, AI inference (200+ models + Bittensor SN64), image generation, prediction markets, stocks, DeFi, RPC, Robot Task Protocol (RTP), Supply Chain Task Protocol (SCTP), Agent Wallets, and more. USDC on Base & Solana.">
+    <meta name="description" content="192 pay-per-call x402 endpoints (160 paid + 32 free) for AI agents and developers. One-line MCP install (183 tools), auto-provisioned wallet — no private key required. Batch payments across 15 chains, AI inference (200+ models + Bittensor SN64), image generation, prediction markets, stocks, DeFi, RPC, Robot Task Protocol (RTP), Supply Chain Task Protocol (SCTP), Agent Wallets, and more. USDC on Base & Solana.">
     <meta property="og:title" content="Spraay Docs – x402 Primitives Catalog">
-    <meta property="og:description" content="186 x402 primitives (154 paid + 32 free) across 15+ chains. One-line MCP install, auto-provisioned wallet — no private key. Pay per call with USDC on Base &amp; Solana.">
+    <meta property="og:description" content="192 x402 primitives (160 paid + 32 free) across 15+ chains. One-line MCP install, auto-provisioned wallet — no private key. Pay per call with USDC on Base &amp; Solana.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.spraay.app">
     <meta property="og:image" content="https://spraay.app/spraay-logo-1000x1000.png">
@@ -224,7 +224,7 @@
     <span class="topbar-label">Developer Docs</span>
     <div class="topbar-right">
         <span class="topbar-badge badge-live">Gateway Live</span>
-        <span class="topbar-badge badge-count">186 Primitives</span>
+        <span class="topbar-badge badge-count">192 Primitives</span>
         <a href="https://spraay.app" class="topbar-link">&larr; Back to App</a>
         <a href="https://docs.spraay.app/bpa/1.0/" class="topbar-link">BPA Spec</a>
         <a href="https://live.spraay.app" class="topbar-link">Live</a>
@@ -317,7 +317,7 @@
     </div>
     <div class="sidebar-section">
         <div class="sidebar-heading">GPU / Compute</div>
-        <a href="#cat-gpu"><span class="side-icon">🖥️</span> GPU Run &amp; Status <span class="side-badge sb-live">3</span></a>
+        <a href="#cat-gpu"><span class="side-icon">🖥️</span> GPU Run &amp; Status <span class="side-badge sb-live">4</span></a>
     </div>
     <div class="sidebar-section">
         <div class="sidebar-heading">Robotics / RTP</div>
@@ -330,6 +330,7 @@
     <div class="sidebar-section">
         <div class="sidebar-heading">Agent Wallet</div>
         <a href="#cat-agent-wallet"><span class="side-icon">👛</span> ERC-4337 Agent Wallet <span class="side-badge sb-live">5</span></a>
+        <a href="#cat-wallet"><span class="side-icon">💳</span> Wallet Provisioning <span class="side-badge sb-live">5</span></a>
     </div>
 </nav>
 
@@ -342,10 +343,10 @@
         <h1>x402 Primitives <span>Catalog</span></h1>
         <p>The full-stack pay-per-call API for crypto infrastructure. Every endpoint is x402-native — agents and developers pay USDC per request on Base &amp; Solana. No API keys, no accounts, no subscriptions.</p>
                 <div class="hero-meta">
-            <div class="hero-stat"><span class="hero-dot"></span> <strong>186</strong> Primitives</div>
-            <div class="hero-stat"><strong>154</strong> Paid</div>
+            <div class="hero-stat"><span class="hero-dot"></span> <strong>192</strong> Primitives</div>
+            <div class="hero-stat"><strong>160</strong> Paid</div>
             <div class="hero-stat"><strong>32</strong> Free</div>
-            <div class="hero-stat"><strong>43</strong> Categories</div>
+            <div class="hero-stat"><strong>44</strong> Categories</div>
             <div class="hero-stat"><strong>USDC</strong> on Base &amp; Solana</div>
             <div class="hero-stat"><strong>gateway.spraay.app</strong></div>
         </div>
@@ -385,294 +386,294 @@ console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.5
             <div class="endpoint-card" id="api-v1-free" onclick="toggleCard(this)">
                 <div class="card-summary">
                     <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Catalog</div><div class="card-desc">Index of every free-to-call endpoint with paths and params. No wallet, no payment.</div></div>
-                    <div class="card-endpoint">/api/v1/free</div>
+                    <div class="card-endpoint">/free</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Index of every free-to-call endpoint with paths and params. No wallet, no payment.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
-  <span class="str">"/api/v1/free"</span>
+  <span class="str">"/free"</span>
 );</pre></div></div>
                 </div></div>
             </div>
             <div class="endpoint-card" id="api-v1-free-prices" onclick="toggleCard(this)">
                 <div class="card-summary">
                     <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Prices</div><div class="card-desc">USDC / ETH / SOL spot prices (cached 60s).</div></div>
-                    <div class="card-endpoint">/api/v1/free/prices</div>
+                    <div class="card-endpoint">/free/prices</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">USDC / ETH / SOL spot prices (cached 60s).</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
-  <span class="str">"/api/v1/free/prices"</span>
+  <span class="str">"/free/prices"</span>
 );</pre></div></div>
                 </div></div>
             </div>
             <div class="endpoint-card" id="api-v1-free-gas" onclick="toggleCard(this)">
                 <div class="card-summary">
                     <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Gas</div><div class="card-desc">Live gas prices across 7 EVM chains via Alchemy (cached 15s).</div></div>
-                    <div class="card-endpoint">/api/v1/free/gas</div>
+                    <div class="card-endpoint">/free/gas</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Live gas prices across 7 EVM chains via Alchemy (cached 15s).</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
-  <span class="str">"/api/v1/free/gas"</span>
+  <span class="str">"/free/gas"</span>
 );</pre></div></div>
                 </div></div>
             </div>
             <div class="endpoint-card" id="api-v1-free-chain-status" onclick="toggleCard(this)">
                 <div class="card-summary">
                     <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Chain Status</div><div class="card-desc">Block height &amp; liveness for 7 EVM chains (cached 30s).</div></div>
-                    <div class="card-endpoint">/api/v1/free/chain-status</div>
+                    <div class="card-endpoint">/free/chain-status</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Block height &amp; liveness for 7 EVM chains (cached 30s).</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
-  <span class="str">"/api/v1/free/chain-status"</span>
+  <span class="str">"/free/chain-status"</span>
 );</pre></div></div>
                 </div></div>
             </div>
             <div class="endpoint-card" id="api-v1-free-nonce" onclick="toggleCard(this)">
                 <div class="card-summary">
                     <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Nonce</div><div class="card-desc">EVM nonce / transaction count for any address.</div></div>
-                    <div class="card-endpoint">/api/v1/free/nonce</div>
+                    <div class="card-endpoint">/free/nonce</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">EVM nonce / transaction count for any address.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
-  <span class="str">"/api/v1/free/nonce"</span>
+  <span class="str">"/free/nonce"</span>
 );</pre></div></div>
                 </div></div>
             </div>
             <div class="endpoint-card" id="api-v1-free-resolve" onclick="toggleCard(this)">
                 <div class="card-summary">
                     <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Resolve</div><div class="card-desc">ENS &amp; Basename → address resolution.</div></div>
-                    <div class="card-endpoint">/api/v1/free/resolve</div>
+                    <div class="card-endpoint">/free/resolve</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">ENS &amp; Basename → address resolution.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
-  <span class="str">"/api/v1/free/resolve"</span>
+  <span class="str">"/free/resolve"</span>
 );</pre></div></div>
                 </div></div>
             </div>
             <div class="endpoint-card" id="api-v1-free-validate-address" onclick="toggleCard(this)">
                 <div class="card-summary">
                     <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Validate Address</div><div class="card-desc">Multi-chain address checksum validation.</div></div>
-                    <div class="card-endpoint">/api/v1/free/validate-address</div>
+                    <div class="card-endpoint">/free/validate-address</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Multi-chain address checksum validation.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
-  <span class="str">"/api/v1/free/validate-address"</span>
+  <span class="str">"/free/validate-address"</span>
 );</pre></div></div>
                 </div></div>
             </div>
             <div class="endpoint-card" id="api-v1-free-convert" onclick="toggleCard(this)">
                 <div class="card-summary">
                     <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Convert</div><div class="card-desc">Fiat ↔ crypto conversion (unit math + spot rates).</div></div>
-                    <div class="card-endpoint">/api/v1/free/convert</div>
+                    <div class="card-endpoint">/free/convert</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Fiat ↔ crypto conversion (unit math + spot rates).</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
-  <span class="str">"/api/v1/free/convert"</span>
+  <span class="str">"/free/convert"</span>
 );</pre></div></div>
                 </div></div>
             </div>
             <div class="endpoint-card" id="api-v1-free-uuid" onclick="toggleCard(this)">
                 <div class="card-summary">
                     <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> UUID</div><div class="card-desc">Generate up to 100 UUID v4 identifiers.</div></div>
-                    <div class="card-endpoint">/api/v1/free/uuid</div>
+                    <div class="card-endpoint">/free/uuid</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Generate up to 100 UUID v4 identifiers.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
-  <span class="str">"/api/v1/free/uuid"</span>
+  <span class="str">"/free/uuid"</span>
 );</pre></div></div>
                 </div></div>
             </div>
             <div class="endpoint-card" id="api-v1-free-timestamp" onclick="toggleCard(this)">
                 <div class="card-summary">
                     <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Timestamp</div><div class="card-desc">Current Unix timestamp.</div></div>
-                    <div class="card-endpoint">/api/v1/free/timestamp</div>
+                    <div class="card-endpoint">/free/timestamp</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Current Unix timestamp.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
-  <span class="str">"/api/v1/free/timestamp"</span>
+  <span class="str">"/free/timestamp"</span>
 );</pre></div></div>
                 </div></div>
             </div>
             <div class="endpoint-card" id="api-v1-free-x402-check" onclick="toggleCard(this)">
                 <div class="card-summary">
                     <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> x402 Check</div><div class="card-desc">Probe any URL for x402 payment support.</div></div>
-                    <div class="card-endpoint">/api/v1/free/x402-check</div>
+                    <div class="card-endpoint">/free/x402-check</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Probe any URL for x402 payment support.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
-  <span class="str">"/api/v1/free/x402-check"</span>, {...}
+  <span class="str">"/free/x402-check"</span>, {...}
 );</pre></div></div>
                 </div></div>
             </div>
             <div class="endpoint-card" id="api-v1-free-validate-batch" onclick="toggleCard(this)">
                 <div class="card-summary">
                     <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Validate Batch</div><div class="card-desc">BPA 1.0 payload schema validation (dry run).</div></div>
-                    <div class="card-endpoint">/api/v1/free/validate-batch</div>
+                    <div class="card-endpoint">/free/validate-batch</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">BPA 1.0 payload schema validation (dry run).</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
-  <span class="str">"/api/v1/free/validate-batch"</span>, {...}
+  <span class="str">"/free/validate-batch"</span>, {...}
 );</pre></div></div>
                 </div></div>
             </div>
             <div class="endpoint-card" id="api-v1-free-estimate-batch" onclick="toggleCard(this)">
                 <div class="card-summary">
                     <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Estimate Batch</div><div class="card-desc">Rough batch-payment cost estimate (no live quote).</div></div>
-                    <div class="card-endpoint">/api/v1/free/estimate-batch</div>
+                    <div class="card-endpoint">/free/estimate-batch</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Rough batch-payment cost estimate (no live quote).</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
-  <span class="str">"/api/v1/free/estimate-batch"</span>
+  <span class="str">"/free/estimate-batch"</span>
 );</pre></div></div>
                 </div></div>
             </div>
             <div class="endpoint-card" id="api-v1-free-agent-card" onclick="toggleCard(this)">
                 <div class="card-summary">
                     <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Agent Card</div><div class="card-desc">ERC-8004 agent registry lookup.</div></div>
-                    <div class="card-endpoint">/api/v1/free/agent-card</div>
+                    <div class="card-endpoint">/free/agent-card</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">ERC-8004 agent registry lookup.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
-  <span class="str">"/api/v1/free/agent-card"</span>
+  <span class="str">"/free/agent-card"</span>
 );</pre></div></div>
                 </div></div>
             </div>
             <div class="endpoint-card" id="api-v1-free-chat" onclick="toggleCard(this)">
                 <div class="card-summary">
                     <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Chat</div><div class="card-desc">Free AI chat via NVIDIA NIM (Llama, Mistral, and more).</div></div>
-                    <div class="card-endpoint">/api/v1/free/chat</div>
+                    <div class="card-endpoint">/free/chat</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Free AI chat via NVIDIA NIM (Llama, Mistral, and more).</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
-  <span class="str">"/api/v1/free/chat"</span>, {...}
+  <span class="str">"/free/chat"</span>, {...}
 );</pre></div></div>
                 </div></div>
             </div>
             <div class="endpoint-card" id="api-v1-free-chat-models" onclick="toggleCard(this)">
                 <div class="card-summary">
                     <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Chat Models</div><div class="card-desc">List the free NVIDIA NIM chat models.</div></div>
-                    <div class="card-endpoint">/api/v1/free/chat-models</div>
+                    <div class="card-endpoint">/free/chat/models</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">List the free NVIDIA NIM chat models.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
-  <span class="str">"/api/v1/free/chat-models"</span>
+  <span class="str">"/free/chat/models"</span>
 );</pre></div></div>
                 </div></div>
             </div>
             <div class="endpoint-card" id="api-v1-free-models" onclick="toggleCard(this)">
                 <div class="card-summary">
                     <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Models</div><div class="card-desc">Full model catalog (free mirror of the paid list).</div></div>
-                    <div class="card-endpoint">/api/v1/free/models</div>
+                    <div class="card-endpoint">/free/models</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Full model catalog (free mirror of the paid list).</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
-  <span class="str">"/api/v1/free/models"</span>
+  <span class="str">"/free/models"</span>
 );</pre></div></div>
                 </div></div>
             </div>
             <div class="endpoint-card" id="api-v1-free-dex-trending" onclick="toggleCard(this)">
                 <div class="card-summary">
                     <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> DEX Trending</div><div class="card-desc">Trending tokens &amp; pairs across DEXes via DexScreener.</div></div>
-                    <div class="card-endpoint">/api/v1/free/dex/trending</div>
+                    <div class="card-endpoint">/free/dex/trending</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Trending tokens &amp; pairs across DEXes via DexScreener.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
-  <span class="str">"/api/v1/free/dex/trending"</span>
+  <span class="str">"/free/dex/trending"</span>
 );</pre></div></div>
                 </div></div>
             </div>
             <div class="endpoint-card" id="api-v1-free-dex-search" onclick="toggleCard(this)">
                 <div class="card-summary">
                     <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> DEX Search</div><div class="card-desc">Search DEX pairs across all chains via DexScreener.</div></div>
-                    <div class="card-endpoint">/api/v1/free/dex/search</div>
+                    <div class="card-endpoint">/free/dex/search</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Search DEX pairs across all chains via DexScreener.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
-  <span class="str">"/api/v1/free/dex/search"</span>
+  <span class="str">"/free/dex/search"</span>
 );</pre></div></div>
                 </div></div>
             </div>
             <div class="endpoint-card" id="api-v1-free-dex-tokens" onclick="toggleCard(this)">
                 <div class="card-summary">
                     <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> DEX Tokens</div><div class="card-desc">All DEX pairs for a given token address.</div></div>
-                    <div class="card-endpoint">/api/v1/free/dex/tokens</div>
+                    <div class="card-endpoint">/free/dex/tokens</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">All DEX pairs for a given token address.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
-  <span class="str">"/api/v1/free/dex/tokens"</span>
+  <span class="str">"/free/dex/tokens"</span>
 );</pre></div></div>
                 </div></div>
             </div>
             <div class="endpoint-card" id="api-v1-free-dex-pairs" onclick="toggleCard(this)">
                 <div class="card-summary">
                     <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> DEX Pairs</div><div class="card-desc">Detailed data for a specific DEX pair on a chain.</div></div>
-                    <div class="card-endpoint">/api/v1/free/dex/pairs</div>
+                    <div class="card-endpoint">/free/dex/pairs</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Detailed data for a specific DEX pair on a chain.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
-  <span class="str">"/api/v1/free/dex/pairs"</span>
+  <span class="str">"/free/dex/pairs"</span>
 );</pre></div></div>
                 </div></div>
             </div>
@@ -1893,7 +1894,7 @@ console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.5
 
     <!-- ═══ GPU / COMPUTE ═══ -->
     <div class="category-section cat-infra" id="cat-gpu">
-        <div class="category-header"><div class="category-icon">🖥️</div><h2>GPU / Compute</h2><span class="cat-count">3 endpoints</span></div>
+        <div class="category-header"><div class="category-icon">🖥️</div><h2>GPU / Compute</h2><span class="cat-count">4 endpoints</span></div>
         <div class="endpoint-grid">
             <div class="endpoint-card" id="api-v1-gpu-run" onclick="toggleCard(this)">
                 <div class="card-summary">
@@ -1934,6 +1935,20 @@ console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.5
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">FREE — list curated GPU model shortcuts (Flux, SDXL, Whisper, etc.).</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
   <span class="str">"/api/v1/gpu/models"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-gpu-direct-run" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Direct Run</div><div class="card-desc">GPU inference via a Spraay Direct operator — instant USDC settlement to the GPU host.</div></div>
+                    <div class="card-endpoint">/api/v1/gpu-direct/run</div>
+                    <div class="card-price">$0.03 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">GPU inference via a Spraay Direct operator — instant USDC settlement to the GPU host.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.03 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/gpu-direct/run"</span>, {...}
 );</pre></div></div>
                 </div></div>
             </div>
@@ -2249,6 +2264,83 @@ console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.5
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Predict the deterministic address of an agent wallet before deployment.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.001 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
   <span class="str">"/api/v1/agent-wallet/predict"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ WALLET PROVISIONING ═══ -->
+    <div class="category-section cat-identity" id="cat-wallet">
+        <div class="category-header"><div class="category-icon">💳</div><h2>Wallet Provisioning</h2><span class="cat-count">5 endpoints</span></div>
+        <div class="endpoint-grid">
+            <div class="endpoint-card" id="api-v1-wallet-list" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> List Wallets</div><div class="card-desc">List agent wallets with pagination.</div></div>
+                    <div class="card-endpoint">/api/v1/wallet/list</div>
+                    <div class="card-price">$0.002 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">List agent wallets with pagination.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.002 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/wallet/list"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-wallet-walletid" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Get Wallet</div><div class="card-desc">Get agent wallet details.</div></div>
+                    <div class="card-endpoint">/api/v1/wallet/:walletId</div>
+                    <div class="card-price">$0.001 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Get agent wallet details by wallet ID.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.001 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/wallet/:walletId"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-wallet-walletid-addresses" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Wallet Addresses</div><div class="card-desc">Get chain-specific addresses for a wallet.</div></div>
+                    <div class="card-endpoint">/api/v1/wallet/:walletId/addresses</div>
+                    <div class="card-price">$0.001 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Get chain-specific addresses for a wallet.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.001 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/wallet/:walletId/addresses"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-wallet-sign-message" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Sign Message</div><div class="card-desc">Sign a message with an agent wallet.</div></div>
+                    <div class="card-endpoint">/api/v1/wallet/sign-message</div>
+                    <div class="card-price">$0.005 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Sign a message with an agent wallet.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.005 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/wallet/sign-message"</span>, {...}
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-wallet-send-transaction" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Send Transaction</div><div class="card-desc">Sign and broadcast a transaction from an agent wallet.</div></div>
+                    <div class="card-endpoint">/api/v1/wallet/send-transaction</div>
+                    <div class="card-price">$0.02 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Sign and broadcast a transaction from an agent wallet.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.02 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/wallet/send-transaction"</span>, {...}
 );</pre></div></div>
                 </div></div>
             </div>
