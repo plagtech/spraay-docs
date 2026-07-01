@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spraay Docs – x402 Primitives Catalog</title>
-    <meta name="description" content="180 pay-per-call x402 endpoints (153 paid + 27 free) for AI agents and developers. One-line MCP install (183 tools), auto-provisioned wallet — no private key required. Batch payments across 15 chains, AI inference (200+ models + Bittensor SN64), image generation, prediction markets, stocks, DeFi, RPC, Robot Task Protocol (RTP), Supply Chain Task Protocol (SCTP), Agent Wallets, and more. USDC on Base & Solana.">
+    <meta name="description" content="186 pay-per-call x402 endpoints (154 paid + 32 free) for AI agents and developers. One-line MCP install (183 tools), auto-provisioned wallet — no private key required. Batch payments across 15 chains, AI inference (200+ models + Bittensor SN64), image generation, prediction markets, stocks, DeFi, RPC, Robot Task Protocol (RTP), Supply Chain Task Protocol (SCTP), Agent Wallets, and more. USDC on Base & Solana.">
     <meta property="og:title" content="Spraay Docs – x402 Primitives Catalog">
-    <meta property="og:description" content="180 x402 primitives (153 paid + 27 free) across 15+ chains. One-line MCP install, auto-provisioned wallet — no private key. Pay per call with USDC on Base &amp; Solana.">
+    <meta property="og:description" content="186 x402 primitives (154 paid + 32 free) across 15+ chains. One-line MCP install, auto-provisioned wallet — no private key. Pay per call with USDC on Base &amp; Solana.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.spraay.app">
     <meta property="og:image" content="https://spraay.app/spraay-logo-1000x1000.png">
@@ -224,7 +224,7 @@
     <span class="topbar-label">Developer Docs</span>
     <div class="topbar-right">
         <span class="topbar-badge badge-live">Gateway Live</span>
-        <span class="topbar-badge badge-count">180 Primitives</span>
+        <span class="topbar-badge badge-count">186 Primitives</span>
         <a href="https://spraay.app" class="topbar-link">&larr; Back to App</a>
         <a href="https://docs.spraay.app/bpa/1.0/" class="topbar-link">BPA Spec</a>
         <a href="https://live.spraay.app" class="topbar-link">Live</a>
@@ -256,7 +256,7 @@
         <a href="#cat-analytics"><span class="side-icon">📊</span> Analytics <span class="side-badge sb-live">2</span></a>
         <a href="#cat-data"><span class="side-icon">📦</span> Balances &amp; Tokens <span class="side-badge sb-live">2</span></a>
         <a href="#cat-inference"><span class="side-icon">🧮</span> On-chain Inference <span class="side-badge sb-live">4</span></a>
-        <a href="#cat-compute"><span class="side-icon">⚙️</span> Managed Compute <span class="side-badge sb-live">8</span></a>
+        <a href="#cat-compute"><span class="side-icon">⚙️</span> Managed Compute <span class="side-badge sb-live">10</span></a>
         <a href="#cat-portfolio"><span class="side-icon">🗂️</span> Portfolio <span class="side-badge sb-live">2</span></a>
         <a href="#cat-compute-futures"><span class="side-icon">🔮</span> Compute Futures <span class="side-badge sb-live">6</span></a>
     </div>
@@ -301,6 +301,7 @@
     </div>
     <div class="sidebar-section">
         <div class="sidebar-heading">Compliance</div>
+        <a href="#cat-trust"><span class="side-icon">🚨</span> Safety &amp; Trust <span class="side-badge sb-live">4</span></a>
         <a href="#cat-audit"><span class="side-icon">🛡️</span> Audit Trail <span class="side-badge sb-live">2</span></a>
         <a href="#cat-tax"><span class="side-icon">🧾</span> Tax &amp; Reports <span class="side-badge sb-live">2</span></a>
     </div>
@@ -341,10 +342,10 @@
         <h1>x402 Primitives <span>Catalog</span></h1>
         <p>The full-stack pay-per-call API for crypto infrastructure. Every endpoint is x402-native — agents and developers pay USDC per request on Base &amp; Solana. No API keys, no accounts, no subscriptions.</p>
                 <div class="hero-meta">
-            <div class="hero-stat"><span class="hero-dot"></span> <strong>180</strong> Primitives</div>
-            <div class="hero-stat"><strong>153</strong> Paid</div>
-            <div class="hero-stat"><strong>27</strong> Free</div>
-            <div class="hero-stat"><strong>42</strong> Categories</div>
+            <div class="hero-stat"><span class="hero-dot"></span> <strong>186</strong> Primitives</div>
+            <div class="hero-stat"><strong>154</strong> Paid</div>
+            <div class="hero-stat"><strong>32</strong> Free</div>
+            <div class="hero-stat"><strong>43</strong> Categories</div>
             <div class="hero-stat"><strong>USDC</strong> on Base &amp; Solana</div>
             <div class="hero-stat"><strong>gateway.spraay.app</strong></div>
         </div>
@@ -2257,7 +2258,7 @@ console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.5
 
     <!-- ═══ MANAGED COMPUTE ═══ -->
     <div class="category-section cat-data" id="cat-compute">
-        <div class="category-header"><div class="category-icon">⚙️</div><h2>Managed Compute</h2><span class="cat-count">8 endpoints</span></div>
+        <div class="category-header"><div class="category-icon">⚙️</div><h2>Managed Compute</h2><span class="cat-count">10 endpoints</span></div>
         <div class="endpoint-grid">
             <div class="endpoint-card" id="api-v1-compute-text-inference" onclick="toggleCard(this)">
                 <div class="card-summary">
@@ -2368,6 +2369,34 @@ console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.5
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Poll the status of a compute job by ID.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.001 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
   <span class="str">"/api/v1/compute/status/:jobId"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-compute-models" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Models</div><div class="card-desc">List all compute models across text, image, video, speech &amp; embeddings with pricing. Call first to pick a model.</div></div>
+                    <div class="card-endpoint">/api/v1/compute/models</div>
+                    <div class="card-price"><span style="color:var(--green);">FREE</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Free discovery endpoint listing all compute models across text, image, video, speech, and embeddings with pricing. Call first to pick the right model and provider.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/compute/models"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-compute-estimate" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Estimate</div><div class="card-desc">Free price estimate for a compute job before committing — expected cost by model and input size.</div></div>
+                    <div class="card-endpoint">/api/v1/compute/estimate</div>
+                    <div class="card-price"><span style="color:var(--green);">FREE</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Free price estimation for a compute job before committing. Returns expected cost by model and input size. Call before any paid compute request to validate budget.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
+  <span class="str">"/api/v1/compute/estimate"</span>, {...}
 );</pre></div></div>
                 </div></div>
             </div>
@@ -2970,6 +2999,69 @@ console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.5
                     <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Search Data.gov datasets by keyword.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.001 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
   <span class="str">"/api/v1/research/demographics/datasets"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ SAFETY & TRUST ═══ -->
+    <div class="category-section cat-compliance" id="cat-trust">
+        <div class="category-header"><div class="category-icon">🚨</div><h2>Safety &amp; Trust</h2><span class="cat-count">4 endpoints</span></div>
+        <div class="endpoint-grid">
+            <div class="endpoint-card" id="api-v1-address-safety" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Address Safety</div><div class="card-desc">Screen recipients — phishing, sanctions, exploits, mixer usage, malicious contracts.</div></div>
+                    <div class="card-endpoint">/api/v1/address/safety</div>
+                    <div class="card-price"><span style="color:var(--green);">FREE</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Free address safety screen — phishing, sanctions, exploits, mixer usage, malicious contracts. Screen recipients before sending funds.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/address/safety"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-token-safety" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Token Safety</div><div class="card-desc">Pre-trade token check — honeypot, sell tax, mint/blacklist, proxy risk (GoPlus-powered).</div></div>
+                    <div class="card-endpoint">/api/v1/token/safety</div>
+                    <div class="card-price"><span style="color:var(--green);">FREE</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Free pre-trade token safety check — honeypot, sell tax, mint/blacklist, proxy risk. GoPlus-powered with Spraay severity scoring. Called before every trade.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/token/safety"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-tx-decode" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Decode Tx</div><div class="card-desc">Plain-English summary + structured token transfers for any EVM transaction.</div></div>
+                    <div class="card-endpoint">/api/v1/tx/decode</div>
+                    <div class="card-price"><span style="color:var(--green);">FREE</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Free transaction decoder — plain-English summary + structured token transfers for any EVM tx. Covers swaps, transfers, approvals, wraps, NFTs, batch payments. Blockscout-powered.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/tx/decode"</span>
+);</pre></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="api-v1-trust-score" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Trust Score</div><div class="card-desc">Multi-dimensional wallet/agent trust score via ProofLayer — financial, reliability, social axes.</div></div>
+                    <div class="card-endpoint">/api/v1/trust/score</div>
+                    <div class="card-price">$0.03 <span class="currency">USDC</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Multi-dimensional wallet/agent trust score via ProofLayer. Financial, reliability, trust, social axes + XMTP reputation + on-chain signals. Counterparty due diligence for agent-to-agent payments.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> $0.03 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
+  <span class="str">"/api/v1/trust/score"</span>
 );</pre></div></div>
                 </div></div>
             </div>
