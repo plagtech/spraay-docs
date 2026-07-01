@@ -581,13 +581,13 @@ console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.5
             </div>
             <div class="endpoint-card" id="api-v1-free-chat" onclick="toggleCard(this)">
                 <div class="card-summary">
-                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Chat</div><div class="card-desc">Free AI chat via NVIDIA NIM (Llama, Mistral, and more).</div></div>
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Chat</div><div class="card-desc">Free AI chat (open-weight models)</div></div>
                     <div class="card-endpoint">/free/chat</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
-                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Free AI chat via NVIDIA NIM (Llama, Mistral, and more).</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Free AI chat (open-weight models)</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
   <span class="str">"/free/chat"</span>, {...}
 );</pre></div></div>
@@ -595,13 +595,13 @@ console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.5
             </div>
             <div class="endpoint-card" id="api-v1-free-chat-models" onclick="toggleCard(this)">
                 <div class="card-summary">
-                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Chat Models</div><div class="card-desc">List the free NVIDIA NIM chat models.</div></div>
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Chat Models</div><div class="card-desc">Free model catalog</div></div>
                     <div class="card-endpoint">/free/chat/models</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
-                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">List the free NVIDIA NIM chat models.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Free model catalog</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
   <span class="str">"/free/chat/models"</span>
 );</pre></div></div>
