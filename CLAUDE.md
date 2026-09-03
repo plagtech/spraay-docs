@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Static documentation site for the **Spraay x402 Gateway** — a catalog of pay-per-call HTTP API "primitives" (endpoints) that AI agents and developers invoke, paying USDC per request via the x402 protocol on Base & Solana. Served at `docs.spraay.app` (see `CNAME`) as GitHub Pages from `plagtech/spraay-docs`. There is no build step, framework, or package manager — the site is hand-authored HTML/CSS/vanilla JS.
+Static documentation site for the **Spraay x402 Gateway** — a catalog of pay-per-call HTTP API "primitives" (endpoints) that AI agents and developers invoke, paying USDC per request via the x402 protocol on Base & Solana. Served at `docs.spraay.app` (see `CNAME`) from the Cloudflare Pages project `spraay-docs`; the git remote is `plagtech/spraay-docs`. There is no build step, framework, or package manager — the site is hand-authored HTML/CSS/vanilla JS.
 
 ## Structure
 
@@ -50,4 +50,12 @@ No server required — open `index.html` directly in a browser, or serve the fol
 
 ## Deployment
 
-Pushing to the default branch publishes via GitHub Pages at `docs.spraay.app`. Only commit/push when asked.
+Hosting is the Cloudflare Pages project `spraay-docs` (domains `docs.spraay.app`, `spraay-docs.pages.dev`). It is **not** git-connected: pushing to GitHub does nothing on its own. Deploys are manual, via `npx wrangler pages deploy` (`npx wrangler login` first if `npx wrangler whoami` says you are not authenticated). Only commit/push/deploy when asked.
+
+**Never deploy the repo folder directly.** `wrangler pages deploy` uploads every file in the directory, and this wrangler line (tested on 4.128.0) does not honor `.wranglerignore` for Pages, so a direct deploy publishes this `CLAUDE.md` at `docs.spraay.app/CLAUDE.md`. The standard deploy step is to export the committed tree to a temp copy, drop `CLAUDE.md`, and deploy that copy (Git Bash / POSIX shell):
+
+```sh
+DEPLOY=$(mktemp -d) && git archive HEAD | tar -x -C "$DEPLOY" && rm -f "$DEPLOY/CLAUDE.md"   && npx wrangler pages deploy "$DEPLOY" --project-name spraay-docs --branch main --commit-dirty=true   && rm -rf "$DEPLOY"
+```
+
+Because the export comes from `HEAD`, commit first; uncommitted edits are not deployed. After deploying, confirm `docs.spraay.app/CLAUDE.md` returns 404 (the edge may serve a cached copy for a short while) and that `/`, `/llms.txt` and `/bpa/1.0/` still serve. Wrangler leaves a `.wrangler/` cache directory in the folder it runs from; delete it rather than committing it.
