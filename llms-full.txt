@@ -42,8 +42,8 @@ Source of truth: https://gateway.spraay.app/.well-known/x402.json
   search: address safety, malicious address, phishing, sanctions check, wallet check, is address safe, recipient check, AML, scam address, blacklist
 - `POST /api/v1/batch/estimate` — $0.001 — Estimate gas and total USDC for a batch payment before sending. Returns per-recipient breakdown. Call before batch/execute.
   search: batch estimate, payment estimate, gas estimate, fee preview, bulk payment cost, pre-flight check, dry run
-- `POST /api/v1/batch/execute` — $0.02 — Batch USDC/ERC-20 payments to up to 200 recipients in one atomic, non-custodial transaction. Implements Batch Payments for Agents (BPA) 1.0.
-  search: batch payment, bulk payout, mass payout, send to many wallets, airdrop, disbursement, multi-send, pay many recipients
+- `POST /api/v1/batch/execute` — $0.02 — Batch USDC/ERC-20 payments to up to 200 recipients in one atomic, non-custodial transaction. Implements Batch Payments for Agents (BPA) 1.0. Chains include Base, Ethereum, Arbitrum, Polygon, BNB, Avalanche, Unichain, Plasma, BOB, and Robinhood Chain (USDG).
+  search: batch payment, bulk payout, mass payout, send to many wallets, airdrop, disbursement, multi-send, pay many recipients, Robinhood Chain, USDG, Global Dollar
 - `POST /api/v1/stellar/batch` — $0.02 — Send batch payments to many recipients in one transaction on the Stellar network.
   search: Stellar batch, XLM payments, batch Stellar, mass Stellar payout, Stellar disbursement, send XLM to many, lumens
 - `POST /api/v1/stellar/estimate` — $0.001 — Estimate fees for a batch Stellar payment before sending.
@@ -173,17 +173,17 @@ Source of truth: https://gateway.spraay.app/.well-known/x402.json
 
 - `GET /free/agent-card` — free — Look up AI agent registration from ERC-8004 Identity Registry on Base. No payment required.
   search: ERC-8004, agent card, agent registry, agent identity, agent lookup
-- `GET /free/chain-status` — free — Block height and liveness for 7 EVM chains. No payment required.
-  search: chain status, block height, chain health, network status
+- `GET /free/chain-status` — free — Block height and liveness for 8 EVM chains. No payment required.
+  search: chain status, block height, chain health, network status, Robinhood Chain
 - `GET /free/convert` — free — Convert between fiat and crypto or between native units (wei/gwei/lamports/drops). No payment required.
   search: convert, unit conversion, fiat to crypto, wei to ETH, currency convert
 - `GET /free/estimate-batch` — free — Rough cost estimate for batch payments by recipient count and chain. No payment required.
   search: batch estimate, rough estimate, cost preview, free estimate
-- `GET /free/gas` — free — Gas prices across 7 EVM chains (Base, Ethereum, Arbitrum, Polygon, Optimism, Avalanche, BSC). Cached 15s. No payment required.
+- `GET /free/gas` — free — Gas prices across 8 EVM chains (Base, Ethereum, Arbitrum, Polygon, Optimism, Avalanche, BSC, Robinhood Chain). Cached 15s. No payment required.
   search: gas price, free gas, network fee, gwei, base fee
 - `GET /free/nonce` — free — Transaction count (nonce) for any EVM address. No payment required.
   search: nonce, transaction count, tx count, pending nonce
-- `GET /free/prices` — free — USDC, ETH, SOL spot prices in USD. Cached 60s. No payment required.
+- `GET /free/prices` — free — USDC, ETH, SOL, USDG spot prices in USD. Cached 60s. No payment required.
   search: token price, free price, ETH price, SOL price, spot price
 - `GET /free/resolve` — free — Resolve ENS name or Basename to an address. Cached 5min. No payment required.
   search: ENS resolve, basename, name resolution, free resolve

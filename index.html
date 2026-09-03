@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spraay Docs – x402 Primitives Catalog</title>
-    <meta name="description" content="192 pay-per-call x402 endpoints (160 paid + 32 free) for AI agents and developers. One-line MCP install (183 tools), auto-provisioned wallet — no private key required. Batch payments across 15 chains, AI inference (200+ models + Bittensor SN64), image generation, prediction markets, stocks, DeFi, RPC, Robot Task Protocol (RTP), Supply Chain Task Protocol (SCTP), Agent Wallets, and more. USDC on Base & Solana.">
+    <meta name="description" content="192 pay-per-call x402 endpoints (160 paid + 32 free) for AI agents and developers. One-line MCP install (183 tools), auto-provisioned wallet — no private key required. Batch payments across 16 chains incl. Robinhood Chain (USDG), AI inference (200+ models + Bittensor SN64), image generation, prediction markets, stocks, DeFi, RPC, Robot Task Protocol (RTP), Supply Chain Task Protocol (SCTP), Agent Wallets, and more. USDC on Base & Solana.">
     <meta property="og:title" content="Spraay Docs – x402 Primitives Catalog">
-    <meta property="og:description" content="192 x402 primitives (160 paid + 32 free) across 15+ chains. One-line MCP install, auto-provisioned wallet — no private key. Pay per call with USDC on Base &amp; Solana.">
+    <meta property="og:description" content="192 x402 primitives (160 paid + 32 free) across 16 chains. One-line MCP install, auto-provisioned wallet — no private key. Pay per call with USDC on Base &amp; Solana.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.spraay.app">
     <meta property="og:image" content="https://spraay.app/spraay-logo-1000x1000.png">
@@ -399,13 +399,13 @@ console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.5
             </div>
             <div class="endpoint-card" id="api-v1-free-prices" onclick="toggleCard(this)">
                 <div class="card-summary">
-                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Prices</div><div class="card-desc">USDC / ETH / SOL spot prices (cached 60s).</div></div>
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Prices</div><div class="card-desc">USDC / ETH / SOL / USDG spot prices (cached 60s).</div></div>
                     <div class="card-endpoint">/free/prices</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
-                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">USDC / ETH / SOL spot prices (cached 60s).</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">USDC / ETH / SOL / USDG spot prices (cached 60s).</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
   <span class="str">"/free/prices"</span>
 );</pre></div></div>
@@ -413,13 +413,13 @@ console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.5
             </div>
             <div class="endpoint-card" id="api-v1-free-gas" onclick="toggleCard(this)">
                 <div class="card-summary">
-                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Gas</div><div class="card-desc">Live gas prices across 7 EVM chains via Alchemy (cached 15s).</div></div>
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Gas</div><div class="card-desc">Live gas prices across 8 EVM chains via Alchemy (cached 15s).</div></div>
                     <div class="card-endpoint">/free/gas</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
-                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Live gas prices across 7 EVM chains via Alchemy (cached 15s).</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Live gas prices across 8 EVM chains via Alchemy (cached 15s).</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
   <span class="str">"/free/gas"</span>
 );</pre></div></div>
@@ -427,13 +427,13 @@ console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.5
             </div>
             <div class="endpoint-card" id="api-v1-free-chain-status" onclick="toggleCard(this)">
                 <div class="card-summary">
-                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Chain Status</div><div class="card-desc">Block height &amp; liveness for 7 EVM chains (cached 30s).</div></div>
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">GET</span> Chain Status</div><div class="card-desc">Block height &amp; liveness for 8 EVM chains (cached 30s).</div></div>
                     <div class="card-endpoint">/free/chain-status</div>
                     <div class="card-price"><span style="color:var(--green);">FREE</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
-                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Block height &amp; liveness for 7 EVM chains (cached 30s).</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Block height &amp; liveness for 8 EVM chains (cached 30s).</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> GET</span><span class="meta-item"><strong>Price:</strong> FREE</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">get</span>(
   <span class="str">"/free/chain-status"</span>
 );</pre></div></div>
@@ -1450,13 +1450,13 @@ console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.5
         <div class="endpoint-grid">
             <div class="endpoint-card" id="api-v1-batch-execute" onclick="toggleCard(this)">
                 <div class="card-summary">
-                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Execute</div><div class="card-desc">Execute a batch payment on any of 8 EVM chains (Base, Ethereum, Arbitrum, Polygon, BNB, Avalanche, Unichain, Plasma, BOB). Native + ERC-20.</div></div>
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">POST</span> Execute</div><div class="card-desc">Execute a batch payment on any of 10 EVM chains (Base, Ethereum, Arbitrum, Polygon, BNB, Avalanche, Unichain, Plasma, BOB, Robinhood Chain). Native + ERC-20, incl. USDG on Robinhood Chain.</div></div>
                     <div class="card-endpoint">/api/v1/batch/execute</div>
                     <div class="card-price">$0.02 <span class="currency">USDC</span></div>
                     <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
                 </div>
                 <div class="card-detail"><div class="detail-grid">
-                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Execute a batch payment on any of 8 EVM chains (Base, Ethereum, Arbitrum, Polygon, BNB, Avalanche, Unichain, Plasma, BOB). Native + ERC-20.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.02 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Execute a batch payment on any of 10 EVM chains (Base, Ethereum, Arbitrum, Polygon, BNB, Avalanche, Unichain, Plasma, BOB, Robinhood Chain). Native + ERC-20, incl. USDG on Robinhood Chain.</p><div class="detail-meta"><span class="meta-item"><strong>Method:</strong> POST</span><span class="meta-item"><strong>Price:</strong> $0.02 USDC</span><span class="meta-item"><strong>Status:</strong> Live</span></div></div>
                     <div class="detail-section"><h4>Request</h4><div class="detail-code"><pre><span class="kw">const</span> result = <span class="kw">await</span> client.<span class="fn">post</span>(
   <span class="str">"/api/v1/batch/execute"</span>, {...}
 );</pre></div></div>

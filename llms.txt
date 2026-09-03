@@ -4,6 +4,8 @@ Pay-per-use infrastructure for autonomous AI agents. Powered by the x402 protoco
 ## What this is
 Spraay provides 129 paid API endpoints (153 total) that agents call with USDC micropayments via HTTP 402. No API keys, no signups — agents pay per-call with on-chain USDC.
 
+Batch payments (BPA 1.0) span 16 chains, including Robinhood Chain (chainId 4663, Arbitrum Orbit L2) where the primary stablecoin is USDG (Global Dollar, 0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168). Note: USDG is a batch-payment asset, not an x402 payment rail — API calls are still paid in USDC per the payment details below.
+
 ## Payment details
 - Protocol: x402 (https://x402.org)
 - Network: Base mainnet (EVM, eip155:8453)
