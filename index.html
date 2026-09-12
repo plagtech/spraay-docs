@@ -6,7 +6,7 @@
     <title>Spraay Docs – x402 Primitives Catalog</title>
     <meta name="description" content="192 pay-per-call x402 endpoints (160 paid + 32 free) for AI agents and developers. One-line MCP install (183 tools), auto-provisioned wallet — no private key required. Batch payments across 16 chains incl. Robinhood Chain (USDG), AI inference (200+ models + Bittensor SN64), image generation, prediction markets, stocks, DeFi, RPC, Robot Task Protocol (RTP), Supply Chain Task Protocol (SCTP), Agent Wallets, and more. USDC on Base & Solana.">
     <meta property="og:title" content="Spraay Docs – x402 Primitives Catalog">
-    <meta property="og:description" content="192 x402 primitives (160 paid + 32 free) across 16 chains. One-line MCP install, auto-provisioned wallet — no private key. Pay per call with USDC on Base &amp; Solana.">
+    <meta property="og:description" content="192 x402 primitives (160 paid + 32 free) across 16 chains. One-line MCP install, auto-provisioned wallet — no private key. Pay per call with USDC on Base &amp; Solana; USDG on Robinhood Chain.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.spraay.app">
     <meta property="og:image" content="https://spraay.app/spraay-logo-1000x1000.png">
@@ -290,6 +290,7 @@
         <a href="#cat-xrp"><span class="side-icon">💧</span> XRP Ledger <span class="side-badge sb-live">3</span></a>
         <a href="#cat-stellar"><span class="side-icon">⭐</span> Stellar <span class="side-badge sb-live">2</span></a>
         <a href="#cat-solana"><span class="side-icon">◎</span> Solana <span class="side-badge sb-live">6</span></a>
+        <a href="#robinhood-usdg"><span class="side-icon">🪶</span> Robinhood USDG rail <span class="side-badge sb-live">pay</span></a>
     </div>
     <div class="sidebar-section">
         <div class="sidebar-heading">Infrastructure</div>
@@ -348,6 +349,7 @@
             <div class="hero-stat"><strong>32</strong> Free</div>
             <div class="hero-stat"><strong>44</strong> Categories</div>
             <div class="hero-stat"><strong>USDC</strong> on Base &amp; Solana</div>
+            <div class="hero-stat"><strong>USDG</strong> on Robinhood Chain</div>
             <div class="hero-stat"><strong>gateway.spraay.app</strong></div>
         </div>
     </div>
@@ -676,6 +678,50 @@ console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.5
   <span class="str">"/free/dex/pairs"</span>
 );</pre></div></div>
                 </div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ ROBINHOOD CHAIN USDG PAYMENT RAIL ═══ -->
+    <div class="category-section cat-data" id="robinhood-usdg">
+        <div class="category-header"><div class="category-icon">🪶</div><h2>Pay in USDG on Robinhood Chain</h2><span class="cat-count">every paid endpoint</span></div>
+        <div class="endpoint-card" onclick="toggleCard(this)">
+            <div class="card-header">
+                <div class="card-title-group"><div class="card-name"><span class="method method-get">x402</span> USDG rail — eip155:4663</div><div class="card-desc">Every paid endpoint also accepts USDG (Global Dollar) on Robinhood Chain at the same USD price. Same x402 v2 <code>exact</code> scheme, same EIP-3009 wire format as USDC on Base — only network, asset and payTo differ.</div></div>
+                <div class="card-endpoint">accepts[] entry: { scheme: "exact", network: "eip155:4663", asset: "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168" }</div>
+            </div>
+            <div class="card-details">
+                <div class="detail-section"><h4>How it works</h4><p style="color:var(--text-dim);font-size:0.88rem;">
+                    1. Call any paid endpoint with no payment → the 402 lists three <code>accepts[]</code> entries: Base USDC, Solana USDC and Robinhood USDG.<br>
+                    2. Pick the <code>eip155:4663</code> entry and sign an EIP-712 <code>TransferWithAuthorization</code> (EIP-3009) with the USDG domain <code>{ name: "Global Dollar", version: "1", chainId: 4663, verifyingContract: 0x5fc5…d168 }</code>. <code>to</code> must equal the entry's <code>payTo</code>, <code>value</code> the entry's <code>amount</code>.<br>
+                    3. Retry with <code>PAYMENT-SIGNATURE</code> (base64 JSON: <code>{ x402Version: 2, resource, accepted, payload: { signature, authorization } }</code>).<br>
+                    4. The gateway verifies (signature, balance, nonce) <em>before</em> the handler runs, then relays the transfer on chain <em>after</em> the handler succeeds. The settlement tx hash comes back in the <code>PAYMENT-RESPONSE</code> header.
+                </p></div>
+                <div class="detail-section"><h4>No approval, no ETH</h4><p style="color:var(--text-dim);font-size:0.88rem;">
+                    USDG on Robinhood Chain implements EIP-3009, so there is no allowance to grant and no Permit2 step. The payer wallet needs USDG only — the gateway's facilitator pays the gas. Any x402 v2 client that already pays USDC on Base (e.g. <code>@x402/fetch</code> with a viem signer on chainId 4663) works unchanged.
+                </p><div class="detail-meta"><span class="meta-item"><strong>Network:</strong> eip155:4663</span><span class="meta-item"><strong>Asset:</strong> USDG (6 decimals)</span><span class="meta-item"><strong>Method:</strong> EIP-3009 transferWithAuthorization</span><span class="meta-item"><strong>Discovery:</strong> <a href="https://gateway.spraay.app/.well-known/x402.json" target="_blank">x402.json → robinhoodPayment</a></span><span class="meta-item"><strong>Explorer:</strong> robinhoodchain.blockscout.com</span></div></div>
+                <div class="detail-section"><h4>Example (ethers v6)</h4><pre><span class="cmt">// 1) read the 402 and pick the Robinhood entry</span>
+<span class="kw">const</span> ch = <span class="kw">await</span> (<span class="kw">await</span> fetch(<span class="str">"https://gateway.spraay.app/api/v1/models"</span>)).json();
+<span class="kw">const</span> a = ch.accepts.find(x =&gt; x.network === <span class="str">"eip155:4663"</span>);
+
+<span class="cmt">// 2) sign EIP-3009 with the USDG domain advertised in a.extra</span>
+<span class="kw">const</span> auth = { from: wallet.address, to: a.payTo, value: a.amount, validAfter: <span class="str">"0"</span>,
+  validBefore: String(Math.floor(Date.now()/1000) + 300), nonce: ethers.hexlify(ethers.randomBytes(32)) };
+<span class="kw">const</span> signature = <span class="kw">await</span> wallet.signTypedData(
+  { name: a.extra.name, version: a.extra.version, chainId: 4663, verifyingContract: a.asset },
+  { TransferWithAuthorization: [ {name:<span class="str">"from"</span>,type:<span class="str">"address"</span>},{name:<span class="str">"to"</span>,type:<span class="str">"address"</span>},{name:<span class="str">"value"</span>,type:<span class="str">"uint256"</span>},
+    {name:<span class="str">"validAfter"</span>,type:<span class="str">"uint256"</span>},{name:<span class="str">"validBefore"</span>,type:<span class="str">"uint256"</span>},{name:<span class="str">"nonce"</span>,type:<span class="str">"bytes32"</span>} ] },
+  { ...auth, value: BigInt(auth.value), validAfter: 0n, validBefore: BigInt(auth.validBefore) });
+
+<span class="cmt">// 3) pay</span>
+<span class="kw">const</span> { scheme, network, asset, amount, payTo, maxTimeoutSeconds, extra } = a;
+<span class="kw">const</span> header = btoa(JSON.stringify({ x402Version: 2, resource: ch.resource,
+  accepted: { scheme, network, asset, amount, payTo, maxTimeoutSeconds, extra }, payload: { signature, authorization: auth } }));
+<span class="kw">const</span> res = <span class="kw">await</span> fetch(<span class="str">"https://gateway.spraay.app/api/v1/models"</span>, { headers: { <span class="str">"PAYMENT-SIGNATURE"</span>: header } });
+<span class="cmt">// res.headers.get("payment-response") → base64 { success, transaction, network, payer }</span></pre></div>
+                <div class="detail-section"><h4>MPP</h4><p style="color:var(--text-dim);font-size:0.88rem;">
+                    The same rail is exposed under the Machine Payments Protocol as the spec <code>evm</code>/<code>charge</code> method (credential type <code>authorization</code>, nonce = keccak256(challenge.id ‖ challenge.realm)). See <a href="https://gateway.spraay.app/.well-known/mpp.json" target="_blank">mpp.json → paymentMethods.evm</a>.
+                </p></div>
             </div>
         </div>
     </div>
