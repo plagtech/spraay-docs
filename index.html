@@ -154,6 +154,8 @@
         .status-live { background: var(--green); box-shadow: 0 0 6px rgba(34,197,94,0.5); }
         .status-soon { background: var(--yellow); box-shadow: 0 0 6px rgba(234,179,8,0.5); }
         .card-chevron { font-size: 0.6rem; color: var(--text-muted); transition: transform 0.2s; margin-left: 0.4rem; }
+        /* Contract deployments: the contract-live caveat must stay readable, not ellipsised */
+        #contract-deployments .card-desc { white-space: normal; overflow: visible; text-overflow: clip; }
         .endpoint-card.expanded .card-chevron { transform: rotate(180deg); }
 
         /* ── Expanded Detail ─────────────────────── */
