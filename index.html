@@ -291,6 +291,7 @@
         <a href="#cat-stellar"><span class="side-icon">⭐</span> Stellar <span class="side-badge sb-live">2</span></a>
         <a href="#cat-solana"><span class="side-icon">◎</span> Solana <span class="side-badge sb-live">6</span></a>
         <a href="#robinhood-usdg"><span class="side-icon">🪶</span> Robinhood USDG rail <span class="side-badge sb-live">pay</span></a>
+        <a href="#contract-deployments"><span class="side-icon">📜</span> Contract deployments <span class="side-badge sb-live">onchain</span></a>
     </div>
     <div class="sidebar-section">
         <div class="sidebar-heading">Infrastructure</div>
@@ -722,6 +723,50 @@ console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.5
                 <div class="detail-section"><h4>MPP</h4><p style="color:var(--text-dim);font-size:0.88rem;">
                     The same rail is exposed under the Machine Payments Protocol as the spec <code>evm</code>/<code>charge</code> method (credential type <code>authorization</code>, nonce = keccak256(challenge.id ‖ challenge.realm)). See <a href="https://gateway.spraay.app/.well-known/mpp.json" target="_blank">mpp.json → paymentMethods.evm</a>.
                 </p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ CONTRACT DEPLOYMENTS (contract-live vs gateway-settled) ═══ -->
+    <div class="category-section cat-financial" id="contract-deployments">
+        <div class="category-header"><div class="category-icon">📜</div><h2>Contract deployments</h2><span class="cat-count">contract-live ≠ gateway-settled</span></div>
+        <p style="margin:-0.4rem 0 1rem;font-size:0.85rem;color:var(--text-dim);">Two different things are worth keeping apart. <strong>Gateway-settled</strong> chains are the ones <code>/api/v1/batch/execute</code> will actually broadcast on — that is what the 16-chain figure and the BPA chain list mean, and <code>/free/validate-batch</code> accepts exactly those names. <strong>Contract-live</strong> chains are ones where the Spraay batch contract is deployed and verified on-chain but the gateway does not route to it: you can call the contract directly with your own signer and RPC, and the gateway's batch endpoints will reject the chain.</p>
+        <div class="endpoint-grid">
+            <div class="endpoint-card" id="contract-base" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-get">chain</span> Base — eip155:8453</div><div class="card-desc">Reference deployment. Gateway-settled: <code>/api/v1/batch/execute</code> broadcasts here, and this is the bytecode every other deployment is matched against.</div></div>
+                    <div class="card-endpoint">0x1646452F98E36A3c9Cfc3eDD8868221E207B5eEC</div>
+                    <div class="card-price"><span style="color:var(--green);">gateway-settled</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>Description</h4><p style="color:var(--text-dim);font-size:0.88rem;">Reference deployment of the Spraay batch contract. Settled by the gateway — call <code>/api/v1/batch/execute</code> with <code>"chain": "base"</code> rather than the contract directly, unless you want to run your own signer.</p><div class="detail-meta"><span class="meta-item"><strong>Chain ID:</strong> 8453</span><span class="meta-item"><strong>Status:</strong> Gateway-settled</span><span class="meta-item"><strong>Explorer:</strong> <a href="https://basescan.org/address/0x1646452F98E36A3c9Cfc3eDD8868221E207B5eEC" target="_blank">basescan.org</a></span></div></div>
+                </div></div>
+            </div>
+            <div class="endpoint-card" id="contract-peaq" onclick="toggleCard(this)">
+                <div class="card-summary">
+                    <div class="card-title-group"><div class="card-name"><span class="method method-post">chain</span> peaq — eip155:3338</div><div class="card-desc">Contract-live only. The batch contract is deployed on peaq mainnet and verified <code>exact_match</code> on Sourcify, byte-identical to the Base deployment — but the gateway does not settle peaq: <code>/api/v1/batch/execute</code> does not serve it and <code>/free/validate-batch</code> rejects <code>"chain": "peaq"</code> as an unsupported chain. Call it directly with your own signer.</div></div>
+                    <div class="card-endpoint">0x08fA5D1c16CD6E2a16FC0E4839f262429959E073</div>
+                    <div class="card-price"><span style="color:var(--text-dim);">contract-live</span></div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;"><div class="card-status status-live"></div><span class="card-chevron">▼</span></div>
+                </div>
+                <div class="card-detail"><div class="detail-grid">
+                    <div class="detail-section"><h4>What is and isn't live</h4><p style="color:var(--text-dim);font-size:0.88rem;">
+                        The contract is live, verified and exercised on peaq mainnet. The <em>gateway</em> is not wired to it. That means no <code>/api/v1/batch/execute</code>, no <code>/api/v1/batch/estimate</code>, and no entry in <code>/free/chain-status</code> for peaq; <code>/free/validate-batch</code> returns <code>Unsupported chain "peaq"</code>. To use it today, point your own wallet and RPC at the address below. peaq shares this address with Unichain, Plasma and Robinhood Chain.
+                    </p><div class="detail-meta"><span class="meta-item"><strong>Chain ID:</strong> 3338</span><span class="meta-item"><strong>Status:</strong> Contract-live, not gateway-settled</span><span class="meta-item"><strong>Fee:</strong> 30 bps (0.3%)</span><span class="meta-item"><strong>Verification:</strong> <a href="https://repo.sourcify.dev/3338/0x08fA5D1c16CD6E2a16FC0E4839f262429959E073" target="_blank">Sourcify exact_match</a> (creation + runtime)</span><span class="meta-item"><strong>Explorer:</strong> <a href="https://peaq.subscan.io/account/0x08fA5D1c16CD6E2a16FC0E4839f262429959E073" target="_blank">peaq.subscan.io</a></span></div></div>
+                    <div class="detail-section"><h4>Proof</h4><p style="color:var(--text-dim);font-size:0.88rem;">
+                        A <code>sprayETH</code> batch executed against this deployment — two recipients, unequal amounts, fee and excess refund verified on chain: <a href="https://peaq.subscan.io/tx/0x8012e6c12d68abbd26c9c14a59dac134b8ad2715b5f0eb7fe49b83d74878385f" target="_blank"><code style="font-size:0.72rem;">0x8012e6c12d68abbd26c9c14a59dac134b8ad2715b5f0eb7fe49b83d74878385f</code></a> (block 11,620,532).
+                    </p></div>
+                    <div class="detail-section"><h4>Calling it directly</h4><div class="detail-code"><pre><span class="cmt">// chainId 3338 · same ABI as the Base deployment</span>
+<span class="kw">struct</span> Recipient { address to; uint256 amount; }
+
+<span class="fn">sprayETH</span>(Recipient[] recipients) <span class="kw">payable</span>
+<span class="fn">sprayToken</span>(address token, Recipient[] recipients)
+<span class="fn">sprayEqual</span>(address token, address[] recipients, uint256 amountEach)
+
+<span class="cmt">// ERC-20: the contract pulls total + fee in one transferFrom, so the</span>
+<span class="cmt">// allowance must cover the fee too — an approval for the total alone reverts.</span></pre></div></div>
+                </div></div>
             </div>
         </div>
     </div>
@@ -3442,7 +3487,7 @@ console.<span class="fn">log</span>(prices);  <span class="cmt">// { ETH: 2847.5
 </div>
 <div class="docs-footer">
     <p>Spraay x402 Gateway &middot; <a href="https://spraay.app">spraay.app</a> &middot; <a href="https://docs.spraay.app/bpa/1.0/">BPA Spec</a> &middot; <a href="https://live.spraay.app">Live Traffic</a> &middot; <a href="https://github.com/plagtech">GitHub</a> &middot; <a href="https://twitter.com/Spraay_app">Twitter</a> &middot; <a href="https://warpcast.com/plag">Farcaster</a></p>
-    <p style="margin-top:0.4rem;">Contract: <a href="https://basescan.org/address/0x1646452F98E36A3c9Cfc3eDD8868221E207B5eEC" target="_blank"><code style="font-size:0.72rem;">0x1646452F98E36A3c9Cfc3eDD8868221E207B5eEC</code></a> on Base</p>
+    <p style="margin-top:0.4rem;">Contract: <a href="https://basescan.org/address/0x1646452F98E36A3c9Cfc3eDD8868221E207B5eEC" target="_blank"><code style="font-size:0.72rem;">0x1646452F98E36A3c9Cfc3eDD8868221E207B5eEC</code></a> on Base &middot; <a href="https://repo.sourcify.dev/3338/0x08fA5D1c16CD6E2a16FC0E4839f262429959E073" target="_blank"><code style="font-size:0.72rem;">0x08fA5D1c16CD6E2a16FC0E4839f262429959E073</code></a> on peaq (<a href="#contract-deployments">contract-live, not gateway-settled</a>)</p>
 </div>
 </div>
 
